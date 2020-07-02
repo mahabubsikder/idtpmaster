@@ -1,0 +1,147 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IDTP</title>
+    <link href="~/plugins/jquery-steps/css/jquery.steps.css" rel="stylesheet">
+    <link href="~/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    @*<script src="https://kit.fontawesome.com/49c71035e3.js" crossorigin="anonymous"></script>*@
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/common/common.min.js"></script>
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="@Url.Action("Create", "TransferFund")">
+                
+                <span class="brand-title">
+                    @*<img src="~/images/logo-text.png" alt="">*@
+                    <h1 style="color:white;"> IDTP </h1>
+                </span>
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content clearfix">
+
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        @*<li class="icons dropdown">
+                            <a href="#" data-toggle="dropdown">
+                                <i class="fas fa-user-circle"></i>
+                            </a>
+                            <div class="drop-down dropdown-profile dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Home")"><i class="icon-key"></i> <span>Logout</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>*@
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    @*<li class="nav-label">Menu</li>*@
+                    @*<li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Check Balance</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="#" style="text-decoration:none;">৳ @ViewBag.currentbalance</a></li>
+                            @Model.balance
+                             <li><a href="./index-2.html">Home 2</a></li> 
+                        </ul>
+                    </li>*@
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+            @RenderBody()
+
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Orion Informatics Ltd.</a> 2020</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    @*call notification function*@
+    
+    <script src="~/js/custom.min.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/gleek.js"></script>
+    <script src="~/js/styleSwitcher.js"></script>
+    <script src="~/plugins/jquery-steps/build/jquery.steps.min.js"></script>
+    <script src="~/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/js/plugins-init/jquery-steps-init.js"></script>
+    <script src="~/plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

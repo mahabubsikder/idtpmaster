@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/17/2020 17:27:26" ReportInfo.Modified="06/24/2020 14:10:52" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="White" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXwAP2EX6zK1wMb+Vw27PxK+IBWNxGxmrLWJtJOwJ1v/mj+ll/BnyXVa2XzcKZqQjF99QIiEVKGznpcCYrfnSy8G">
+      <TableDataSource Name="Table" Alias="Salary Disbursement Details Report" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_SalaryDetails">
+        <Column Name="Reference No" DataType="System.String"/>
+        <Column Name="Payee Name" DataType="System.String"/>
+        <Column Name="Basic" DataType="System.Double"/>
+        <Column Name="TotalAllowance" DataType="System.Double"/>
+        <Column Name="Gross Pay" DataType="System.Double"/>
+        <Column Name="Total Deductions" DataType="System.Double"/>
+        <Column Name="Amount" DataType="System.Double"/>
+        <Column Name="Salary Month &amp; Year " DataType="System.DateTime"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="122.85">
+      <TextObject Name="Text1" Width="718.2" Height="122.85" Dock="Fill" Text="Salary Disbursement Details Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="126.85" Width="718.2" Height="28.35">
+        <TextObject Name="Text19" Left="538.65" Width="56.7" Height="28.35" Text="Date:" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+        <TextObject Name="Text20" Left="595.35" Width="113.4" Height="28.35" Text="[Date]" Format="Date" Format.Format="MMMM dd, yyyy" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="159.2" Width="718.2" Height="66.15">
+      <TextObject Name="Text3" Width="122.85" Height="66.15" Border.Lines="All" Border.BottomLine.Width="1.5" Text="Reference No" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text5" Left="122.85" Width="75.6" Height="66.15" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Payee Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text7" Left="198.45" Width="94.5" Height="66.15" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Salary Month &amp; Year " HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text9" Left="292.95" Width="75.6" Height="66.15" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Basic" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text11" Left="368.55" Width="94.5" Height="66.15" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Total Allowance" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text13" Left="463.05" Width="75.6" Height="66.15" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Gross Pay" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text15" Left="538.65" Width="103.95" Height="66.15" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Total Deductions" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text17" Left="642.6" Width="75.6" Height="66.15" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Amount" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="229.35" Width="718.2" Height="37.8" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text2" Width="122.85" Height="37.8" Border.Lines="Left, Right, Bottom" Text="[Salary Disbursement Details Report.Reference No]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="122.85" Width="75.6" Height="37.8" Border.Lines="Right, Bottom" Text="[Salary Disbursement Details Report.Payee Name]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="198.45" Width="94.5" Height="37.8" Border.Lines="Right, Bottom" Text="[Salary Disbursement Details Report.Salary Month &amp; Year ]" Format="Date" Format.Format="MMMM yyyy" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Left="292.95" Width="75.6" Height="37.8" Border.Lines="Right, Bottom" Text="[Salary Disbursement Details Report.Basic]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="368.55" Width="94.5" Height="37.8" Border.Lines="Right, Bottom" Text="[Salary Disbursement Details Report.TotalAllowance]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text12" Left="463.05" Width="75.6" Height="37.8" Border.Lines="Right, Bottom" Text="[Salary Disbursement Details Report.Gross Pay]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text14" Left="538.65" Width="103.95" Height="37.8" Border.Lines="Right, Bottom" Text="[Salary Disbursement Details Report.Total Deductions]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text16" Left="642.6" Width="75.6" Height="37.8" Border.Lines="Right, Bottom" Text="[Salary Disbursement Details Report.Amount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="271.15" Width="718.2" Height="18.9">
+      <TextObject Name="Text18" Width="718.2" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

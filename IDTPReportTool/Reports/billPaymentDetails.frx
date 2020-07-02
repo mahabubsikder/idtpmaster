@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/15/2020 21:31:55" ReportInfo.Modified="06/24/2020 14:01:51" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="White" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXwAP2EX6zK1wMb+Vw27PxK+IBWNxGxmrLWJtJOwJ1v/mj+ll/BnyXVa2XzcKZqQjF8h3uTO9QzSCScSGxJsodec">
+      <TableDataSource Name="Table" Alias="BillPaymentDetails" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_BillPaymentDetails">
+        <Column Name="Payer Name" DataType="System.String"/>
+        <Column Name="Bill Number" DataType="System.String"/>
+        <Column Name="Amount Paid" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Date" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="103.95">
+      <TextObject Name="Text1" Width="718.2" Height="103.95" Dock="Fill" Text="Bill Payment Details Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 18pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="107.95" Width="718.2" Height="37.8">
+        <TextObject Name="Text9" Left="519.75" Width="56.7" Height="28.35" Text="Date:" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+        <TextObject Name="Text10" Left="576.45" Width="141.75" Height="28.35" Text="[Date]" Format="Date" Format.Format="MMMM dd, yyyy" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="149.75" Width="718.2" Height="47.25">
+      <TextObject Name="Text3" Width="245.7" Height="47.25" Border.Lines="All" Border.BottomLine.Width="1.5" Text="Payer Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="245.7" Width="236.25" Height="47.25" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Bill Number" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="481.95" Width="236.25" Height="47.25" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Amount Paid" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="201" Width="718.2" Height="47.25" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text2" Width="245.7" Height="47.25" Border.Lines="Left, Right, Bottom" Text="[BillPaymentDetails.Payer Name]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="245.7" Width="236.25" Height="47.25" Border.Lines="Right, Bottom" Text="[BillPaymentDetails.Bill Number]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="481.95" Width="236.25" Height="47.25" Border.Lines="Right, Bottom" Text="[BillPaymentDetails.Amount Paid]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="252.25" Width="718.2" Height="18.9">
+      <TextObject Name="Text8" Width="718.2" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

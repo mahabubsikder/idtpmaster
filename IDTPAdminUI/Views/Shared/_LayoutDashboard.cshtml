@@ -1,0 +1,207 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using IDTPDomainModel.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IDTP</title>
+    <link href="~/plugins/jquery-steps/css/jquery.steps.css" rel="stylesheet">
+    <link href="~/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="~/plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
+    <link href="~/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <!-- Page plugins css -->
+    <link href="~/plugins/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
+    <!-- Color picker plugins css -->
+    <link href="~/plugins/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
+    <!-- Date picker plugins css -->
+    <link href="~/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+    <!-- Daterange picker plugins css -->
+    <link href="~/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="~/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/49c71035e3.js" crossorigin="anonymous"></script>
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/common/common.min.js"></script>
+
+</head>
+<body>
+    <style>
+        .page-item.active .page-link {
+            z-index: 0;
+        }
+
+        div.dataTables_filter input {
+            background: #F3F3F9;
+
+        }
+        div.dataTables_filter input:focus {
+            background: #F3F3F9;
+        }
+    </style>
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="@Url.Action("Index", "Home")">
+                    @*<b class="logo-abbr"><img src="~/images/logo.png" alt=""> </b>*@
+                    @*<span class="logo-compact"><img src="~/images/logo-compact.png" alt=""></span>*@
+                    <span class="brand-title">
+                        @*<img src="~/images/logo-text.png" alt="">*@
+                        <h1 style="color:white;"> IDTP </h1>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content clearfix">
+
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+                <div class="header-left">
+                    <div class="input-group icons">
+                        @if (ViewBag.bankname != null)
+                        {
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" style="color:blueviolet; font-size:18px" id="basic-addon1">
+
+                                    <p style="color:black;font-size:18px"> Welcome, &nbsp;</p><p> @ViewBag.bankname</p>
+                                </span>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        <li class="icons dropdown">
+                            <a href="#" data-toggle="dropdown">
+                                <i class="fas fa-user-circle"></i>
+                            </a>
+                            <div class="drop-down dropdown-profile dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        @if (SignInManager.IsSignedIn(User))
+                                        {
+                                            <li class="nav-item">
+                                                <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fas fa-users-cog"></i>@UserManager.GetUserName(User)</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                    <button id="logout" type="submit" class="nav-link btn btn-link"><i class="fas fa-sign-out-alt"></i> &nbsp;Logout</button>
+                                                </form>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+            @RenderBody()
+
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; Designed & Developed by <a href="#">Orion Informatics Ltd.</a> 2020</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+
+    <script>
+
+        function clearNotificationNumber() {
+            $('#notificationCount').html("")
+
+
+        }
+    </script>
+
+    <script src="~/js/custom.min.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/gleek.js"></script>
+    <script src="~/js/styleSwitcher.js"></script>
+    <script src="~/plugins/jquery-steps/build/jquery.steps.min.js"></script>
+    <script src="~/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/js/plugins-init/jquery-steps-init.js"></script>
+    <script src="~/plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+    <script src="~/plugins/metismenu/js/metisMenu.min.js"></script>
+    @*<script src="~/plugins/sweetalert/js/sweetalert.init.js"></script>*@
+    <script src="~/plugins/sweetalert/js/sweetalert.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

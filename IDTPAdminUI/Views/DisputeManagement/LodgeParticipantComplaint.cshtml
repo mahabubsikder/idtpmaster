@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewData["Title"] = "LodgeParticipantComplaint";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="bootstrap-modal">
+            <div class="modal fade" id="complainsubmittedmodal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body bg-success-lighten-2">Your complain has been submitted.</div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bootstrap-modal">
+            <div class="modal fade" id="emailModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body bg-warning-lighten-2" style="text-align: center;">An Email has been sent to your registered email address!</div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <form class="form-validation" asp-action="LodgeParticipantComplaint" asp-controller="DisputeManagement" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-validation">
+                    <div class="card">
+                        <div class="card-body">
+                            @*<h2>SampleBank1</h2>*@
+                            <h4 class="card-title">Lodge Participant Complaint</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row">
+
+                                <label class="col-lg-4 col-form-label" for="transactionid">
+                                    Transaction ID <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="transactionid" name="transactionid" placeholder="Enter transaction id here" onblur="getTranMonitorInfo()">
+                                    <input id="tranintId" name="Id" hidden />
+                                    <input id="originatorId" name="OriginatorId" hidden />
+                                    <input id="executorId" name="ExecutorId" hidden />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="senderaccountno">Sender ID</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="senderId" name="SenderId" readonly="readonly">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="receiveraccountno">Receiver ID</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="receiverId" name="ReceiverId" readonly="readonly">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="transactionamount">Transaction Amount</label>
+                                <div class="col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">৳</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="transactionamount" name="TransactionAmount" readonly="readonly">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="form-group row">
+                    <label class="col-lg-4 col-form-label" for="settlementstatus">Settlement Status</label>
+                    <div class="col-lg-6">
+                        <input type="text" class="form-control" id="settlementstatus" name="settlementstatus" readonly="readonly">
+                    </div>
+                </div>-->
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="disputetitle">
+                                    Dispute Title
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="disputetitle" name="DisputeTitle" />
+                                </div>
+                            </div>
+                            @*<div class="form-group row">
+                        <label class="col-lg-4 col-form-label" for="disputetype">Dispute Type</label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="disputetype" name="DisputeType" placeholder="Example: Transfer, Payment">
+                        </div>
+                    </div>*@
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="disputedetails">Dispute Details</label>
+                                <div class="col-lg-6">
+                                    <textarea class="form-control h-150px" rows="6" id="disputedetails" name="DisputeDetail" placeholder="Type your dispute detail here"></textarea>
+                                </div>
+                            </div>
+                            @*<div class="form-group row">
+                        <label class="col-lg-4 col-form-label" for="disputeaction">Dispute Action</label>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                @Html.DropDownList("DisputeActionId", new SelectList(ViewBag.actionList, "Id", "Name"), "Select Action", new { @class = "form-control", required = true })
+                            </div>
+                        </div>
+                    </div>*@
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="disputeseverity">Dispute Severity</label>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        @Html.DropDownList("DisputeSeverityId", new SelectList(ViewBag.severityList, "Id", "Name"), "Select Severity", new { @class = "form-control", required = true })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-lg-10" style="text-align: right;">
+                                    @*<button type="submit" class="btn btn-warning" id="btnEmail">Send Email</button>*@
+                                    <button type="submit" class="btn btn-info" id="lodgeparticipantcomplaintsubmitbutton">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    
+    function getTranMonitorInfo() {
+        var transactionId = document.getElementById('transactionid').value;
+        $.ajax({
+            url: '/DisputeManagement/GetTransactionInfoByTransID?TransactionId=' + transactionId,
+            type: 'Post',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (data) {
+                console.log('data: ', data);             
+                document.getElementById('tranintId').value = data.id;
+                document.getElementById('senderId').value = data.senderId;
+               // document.getElementById('senderaccountname').value = data.senderAccountName;
+                document.getElementById('receiverId').value = data.receiverId;
+               // document.getElementById('receiveraccountname').value = data.receiverAccountName;
+                document.getElementById('transactionamount').value = data.transactionAmount;
+                document.getElementById('executorId').value = data.executorId;
+                document.getElementById('originatorId').value = data.originatorId;
+                
+            },
+        });
+    }
+</script>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/24/2020 17:11:44" ReportInfo.Modified="06/25/2020 20:31:11" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="White" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXwAP2EX6zK1wMb+Vw27PxK+IBWNxGxmrLWJtJOwJ1v/mj+ll/BnyXVa2XzcKZqQjF+sMoqgPjglrtRgqf2tCgPG">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_DisputeDetails">
+        <Column Name="Originator Type" DataType="System.String"/>
+        <Column Name="Originator Name" DataType="System.String"/>
+        <Column Name="Executor Type" DataType="System.String"/>
+        <Column Name="Executor Name" DataType="System.String"/>
+        <Column Name="Amount" DataType="System.Decimal"/>
+        <Column Name="SettlementStatus" DataType="System.String"/>
+        <Column Name="DisputeSettlementTime" DataType="System.DateTime"/>
+        <Column Name="DisputeSettlementStatus" DataType="System.String"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="DisputeSettledBy" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" LastPageSource="15" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="132.3">
+      <TextObject Name="Text1" Width="1047.06" Height="132.3" Dock="Fill" Text="Dispute Management Details Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <TextObject Name="Text28" Left="831.6" Top="103.95" Width="66.15" Height="28.35" Text="Date:" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text29" Left="897.75" Top="103.95" Width="141.75" Height="28.35" Text="[Date]" Format="Date" Format.Format="MMMM dd, yyyy" HorzAlign="Right" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="136.3" Width="1047.06" Height="74.6">
+      <TextObject Name="Text3" Top="36.8" Width="141.75" Height="37.8" Border.Lines="All" Text="Originator Type" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="140.99" Top="36.8" Width="122.85" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Originator Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="264.6" Top="36.8" Width="130.41" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Executor Type" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="395.01" Top="36.8" Width="122.09" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Executor Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="517.1" Top="36.8" Width="91.48" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Amount" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="608.96" Top="36.8" Width="55.57" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Settled" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text15" Left="666.41" Top="36.8" Width="169.72" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Settlement Time" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text17" Left="834.85" Top="36.8" Width="54.43" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Settled" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text19" Left="890.19" Top="36.8" Width="73.71" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Severity" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text21" Left="963.9" Top="36.8" Width="77.49" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Settled By" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text23" Top="-0.55" Width="264.6" Height="37.8" Border.Lines="Left, Right, Top" Text="Originator" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text24" Left="263.84" Top="-0.55" Width="253.26" Height="37.8" Border.Lines="Right, Top" Text="Executor" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text25" Left="517.1" Top="-0.55" Width="148.18" Height="37.8" Border.Lines="Right, Top" Text="Transaction" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text26" Left="664.9" Top="-0.55" Width="376.11" Height="37.8" Border.Lines="Right, Top" Text="Dispute" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="214.9" Width="1047.06" Height="37.8" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text2" Width="141.75" Height="37.8" Border.Lines="Left, Right, Bottom" Text="[Table.Originator Type]" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="140.85" Width="122.85" Height="37.8" Border.Lines="Right, Bottom" Text="[Table.Originator Name]" Padding="3, 0, 2, 0" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="264.6" Width="130.41" Height="37.8" Border.Lines="Right, Bottom" Text="[Table.Executor Type]" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Left="395.01" Width="122.09" Height="37.8" Border.Lines="Right, Bottom" Text="[Table.Executor Name]" Padding="3, 0, 2, 0" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="517.1" Width="91.48" Height="37.8" Border.Lines="Right, Bottom" Text="[Table.Amount]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="608.96" Width="55.57" Height="37.8" Border.Lines="Right, Bottom" Text="[Table.SettlementStatus]" HorzAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text14" Left="666.41" Width="68.04" Height="37.8" Border.Lines="Bottom" Text="[Table.DisputeSettlementTime]" Format="Date" Format.Format="MM/dd/yy" HorzAlign="Right" Font="Arial, 10pt"/>
+      <TextObject Name="Text16" Left="834.85" Width="54.43" Height="37.8" Border.Lines="Right, Bottom" Text="[Table.DisputeSettlementStatus]" HorzAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text18" Left="890.19" Width="73.71" Height="37.8" Border.Lines="Right, Bottom" Text="[Table.Name]" HorzAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text20" Left="963.9" Width="77.49" Height="37.8" Border.Lines="Right, Bottom" Text="[Table.DisputeSettledBy]" HorzAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text27" Left="730.67" Width="103.95" Height="37.8" Border.Lines="Right, Bottom" Text="[Table.DisputeSettlementTime]" Format="Time" Format.Format="T" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="256.7" Width="1047.06" Height="18.9">
+      <TextObject Name="Text22" Width="1047.06" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

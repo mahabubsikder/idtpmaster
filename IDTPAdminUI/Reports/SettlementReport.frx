@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2020 20:33:43" ReportInfo.Modified="06/25/2020 19:57:05" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="White" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXzWPi9LiTCJwrXgtCeFj55n8UrYE+oMkEeqCM3WwqKA+mvMA2PprYTm04Z0vecBun7p+Xjy2NqgTHzLVs8zGHQM">
+      <TableDataSource Name="Table" Alias="Settlement" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_GetSettlementReport @FinancialInstitutionId">
+        <Column Name="Institution Name" DataType="System.String"/>
+        <Column Name="SendCount" DataType="System.Int32"/>
+        <Column Name="DrAmount" DataType="System.Decimal"/>
+        <Column Name="ReceiveCount" DataType="System.Int32"/>
+        <Column Name="CrAmount" DataType="System.Decimal"/>
+        <Column Name="Net Amount" DataType="System.Decimal"/>
+        <CommandParameter Name="FinancialInstitutionId" DataType="22" Expression="[FinancialInstitutionId]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="FinancialInstitutionId" DataType="System.Int32" Expression="2"/>
+    <Parameter Name="BankName" DataType="System.String" Expression="&quot;Bank&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="66.15">
+      <TextObject Name="Text1" Width="718.2" Height="66.15" Dock="Fill" Text="Settlement Report " HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <TextObject Name="Text26" Dock="Fill" Text="Settlement Report " HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <ChildBand Name="Child2" Top="70.15" Width="718.2" Height="28.35">
+        <TextObject Name="Text15" Left="529.2" Width="66.15" Height="28.35" Text="Date:" HorzAlign="Right" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+        <TextObject Name="Text16" Left="595.35" Width="122.85" Height="28.35" Text="[Date]" Format="Date" Format.Format="MMMM dd, yyyy" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+        <TextObject Name="Text24" Width="132.3" Height="28.35" Text="Institution Name:" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+        <TextObject Name="Text25" Left="134.2" Width="198.45" Height="28.35" Text="[BankName]" VertAlign="Center" Font="Arial, 10pt"/>
+        <ChildBand Name="Child3" Top="102.5" Width="718.2" Height="28.35">
+          <TextObject Name="Text19" Left="500.85" Width="94.5" Height="28.35" Text="Currency:" HorzAlign="Right" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+          <TextObject Name="Text20" Left="595.35" Width="122.85" Height="28.35" Text="BDT" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="134.85" Width="718.2" Height="69.73">
+      <TextObject Name="Text5" Left="149.31" Top="30.8" Width="96.39" Height="37.8" Border.Lines="Right, Bottom" Border.BottomLine.Width="1.5" Text="Txn. Count" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text7" Left="245.7" Top="30.8" Width="122.85" Height="37.8" Border.Lines="Right, Bottom" Border.BottomLine.Width="1.5" Text="Dr Amount" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text9" Left="366.66" Top="30.8" Width="124.74" Height="37.8" Border.Lines="Right, Bottom" Border.BottomLine.Width="1.5" Text="Txn. Count" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text11" Left="491.4" Top="30.8" Width="113.78" Height="37.8" Border.Lines="Right, Bottom" Border.BottomLine.Width="1.5" Text="Cr Amount" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text17" Left="149.31" Width="219.24" Height="30.24" Border.Lines="Right, Top, Bottom" Border.TopLine.Width="0.5" Border.RightLine.Width="0.5" Border.BottomLine.Width="0.5" Text="Delivered" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text18" Left="366.66" Width="238.14" Height="30.24" Border.Lines="Right, Top, Bottom" Text="Received" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text3" Width="151.2" Height="68.8" Border.Lines="All" Border.BottomLine.Width="1.5" Text="Institution Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text13" Left="602.91" Width="115.29" Height="68.8" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Net Amount" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="208.58" Width="718.2" Height="37.8" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text2" Width="151.2" Height="37.8" Border.Lines="Left, Right, Bottom" Text="[Settlement.Institution Name]" Padding="4, 0, 2, 0" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="151.2" Width="94.5" Height="37.8" Border.Lines="Right, Bottom" Text="[Settlement.SendCount]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="245.7" Width="122.85" Height="37.8" Border.Lines="Right, Bottom" Text="[Settlement.DrAmount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Left="368.55" Width="122.85" Height="37.8" Border.Lines="Right, Bottom" Text="[Settlement.ReceiveCount]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="491.4" Width="113.4" Height="37.8" Border.Lines="Right, Bottom" Text="[Settlement.CrAmount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text12" Left="604.8" Width="113.4" Height="37.8" Border.Lines="Right, Bottom" Text="[Settlement.Net Amount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="250.38" Width="718.2" Height="18.9">
+      <TextObject Name="Text14" Width="718.2" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

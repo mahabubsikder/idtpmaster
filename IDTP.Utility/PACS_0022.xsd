@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.05" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.05" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FIToFIPmtStsRpt">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GrpHdr">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="MsgId">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="18"/>
+                          <xs:maxLength value="35"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="CreDtTm" type="xs:dateTime" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="OrgnlGrpInfAndSts">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="OrgnlMsgId">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="18"/>
+                          <xs:maxLength value="35"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="OrgnlMsgNmId" type="xs:string" fixed="pacs.008.001.04"/>
+                    <xs:element name="OrgnlCreDtTm" type="xs:dateTime" />
+                    <xs:element name="GrpSts" type="xs:string" fixed="ACSC"/>
+                    <xs:element name="StsRsnInf">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Rsn">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Prtry" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="TxInfAndSts">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="OrgnlInstrId">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="18"/>
+                          <xs:maxLength value="35"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="OrgnlEndToEndId">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="18"/>
+                          <xs:maxLength value="35"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="OrgnlTxId">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="18"/>
+                          <xs:maxLength value="35"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="TxSts" type="xs:string" fixed="ACSC" />
+                    <xs:element name="StsRsnInf">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Rsn">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Prtry" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="InstgAgt">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="FinInstnId">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="BICFI" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="OrgnlTxRef">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="IntrBkSttlmDt" type="xs:date" />
+                          <xs:element name="IntrBkSttlmAmt">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:unsignedShort">
+                                  <xs:attribute name="Ccy" type="xs:string" use="required" fixed="BDT"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

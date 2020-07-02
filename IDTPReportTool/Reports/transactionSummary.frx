@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2020 13:03:00" ReportInfo.Modified="06/23/2020 20:45:44" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXwAP2EX6zK1wMb+Vw27PxK+IBWNxGxmrLWJtJOwJ1v/mj+ll/BnyXVa2XzcKZqQjF/xjOTZFj3bVsqZL7GpJ4ru">
+      <TableDataSource Name="Table" Alias="Transaction Summary Report" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_TransactionSummary">
+        <Column Name="Institution Name" DataType="System.String"/>
+        <Column Name="No of Transactions" DataType="System.Int32"/>
+        <Column Name="Dr Amount" DataType="System.Decimal"/>
+        <Column Name="Cr Amount" DataType="System.Decimal"/>
+        <Column Name="NetAmount" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="122.85">
+      <TextObject Name="Text1" Width="718.2" Height="122.85" Dock="Fill" Text="Transaction Summary Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="126.85" Width="718.2" Height="37.8">
+        <TextObject Name="Text13" Left="510.3" Width="66.15" Height="28.35" Text="Date:" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+        <TextObject Name="Text14" Left="576.45" Width="141.75" Height="28.35" Text="[Date]" Format="Date" Format.Format="MMMM dd, yyyy" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="168.65" Width="718.2" Height="47.25">
+      <TextObject Name="Text3" Width="151.2" Height="47.25" Border.Lines="All" Border.BottomLine.Width="1.5" Text="Institution Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="151.2" Width="141.75" Height="47.25" Border.Lines="All" Border.BottomLine.Width="1.5" Text="No of Transactions" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="292.95" Width="141.75" Height="47.25" Border.Lines="All" Border.BottomLine.Width="1.5" Text="Dr Amount" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="434.7" Width="141.75" Height="47.25" Border.Lines="All" Border.BottomLine.Width="1.5" Text="Cr Amount" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="576.45" Width="141.75" Height="47.25" Border.Lines="All" Border.BottomLine.Width="1.5" Text="NetAmount" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="219.9" Width="718.2" Height="37.8" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text2" Width="151.2" Height="37.8" Border.Lines="Left, Right, Bottom" Text="[Transaction Summary Report.Institution Name]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="151.2" Width="141.75" Height="37.8" Border.Lines="Right, Bottom" Text="[Transaction Summary Report.No of Transactions]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="292.95" Width="141.75" Height="37.8" Border.Lines="Right, Bottom" Text="[Transaction Summary Report.Dr Amount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Left="434.7" Width="141.75" Height="37.8" Border.Lines="Right, Bottom" Text="[Transaction Summary Report.Cr Amount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="576.45" Width="141.75" Height="37.8" Border.Lines="Right, Bottom" Text="[Transaction Summary Report.NetAmount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="261.7" Width="718.2" Height="18.9">
+      <TextObject Name="Text12" Width="718.2" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

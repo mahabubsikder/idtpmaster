@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewData["Title"] = "ParticipantResponseToDispute";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="bootstrap-modal">
+            <div class="modal fade" id="complainsubmittedmodal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body bg-success-lighten-2">Your complain has been submitted.</div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bootstrap-modal">
+            <div class="modal fade" id="complainsubmittedandemailsentmodal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body bg-success-lighten-2">An email has been sent and your complain has been submitted.</div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <form class="form-validation" asp-action="ParticipantResponseToDispute" asp-controller="DisputeManagement" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-validation">
+                    <div class="card">
+                        <div class="card-body">
+                            @*<h2>Sample Bank 2</h2>*@
+                            <h4 class="card-title">Participant Response - Dispute Management</h4>
+                        </div>
+                        <div class="card-body">
+                            <input id="id" name="id" for="id" hidden />
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="transactionid">
+                                    Transaction ID <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="transactionid" name="transactionid" placeholder="Enter transaction id here" onblur="getDisputeTransactionInfo()">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="senderaccountno">Sender ID</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="senderid" name="senderid" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="receiveraccountno">Receiver ID</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="receiverid" name="receiverid" readonly="readonly">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="transactionamount">Transaction Amount</label>
+                                <div class="col-lg-6">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">৳</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="transactionamount" name="TransactionAmout" readonly="readonly">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="settlementstatus">Settlement Status</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="settlementstatus" name="settlementstatus" readonly="readonly">
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="disputetitle">
+                                    Dispute Title
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="disputetitle" name="DisputeTitle" readonly="readonly">
+                                </div>
+                            </div>
+                            @*<div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="disputetype">Dispute Type</label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" id="disputetype" name="DisputeType" readonly="readonly">
+                                    </div>
+                                </div>*@
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="disputedetails">Dispute Details</label>
+                                <div class="col-lg-6">
+                                    <textarea class="form-control h-150px" rows="6" id="disputedetails" readonly="readonly"></textarea>
+                                </div>
+                            </div>
+                            @*<div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="disputeaction">Dispute Action</label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" id="disputeaction" name="DisputeAction" readonly="readonly">
+                                    </div>
+                                </div>*@
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="disputeseverity">Dispute Severity</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="disputeseverity" name="DisputeSeverity" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="participantaction">Action</label>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <select class="form-control" id="participantaction" name="ParticipantAction">
+                                            <option value="">Select Action</option>
+                                            <option value="True">Accept</option>
+                                            <option value="False">Reject</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="participantresponsetext">Response</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="participantresponsetext" name="ParticipantResponseText">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-10" style="text-align: right;">
+                                    @*<button type="button" class="btn btn-warning" id="sendemailbutton">Send Email</button>*@
+                                    <button type="submit" class="btn btn-info" id="submitresponsebutton">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getDisputeTransactionInfo(e) {
+
+        var transactionId = document.getElementById('transactionid').value;
+        $.ajax({
+            url: '/Disputemanagement/GetDisputeInfoByTransID?TransactionId=' + transactionId,
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (data) {
+                console.log('data: ', data);
+                document.getElementById('id').value = data.id;
+                document.getElementById('senderid').value = data.senderId;
+                // document.getElementById('senderaccountname').value = data.senderAccountName;
+                document.getElementById('receiverid').value = data.receiverId;
+                //document.getElementById('receiveraccountname').value = data.receiverAccountName;
+                document.getElementById('transactionamount').value = data.transactionAmount;
+                //document.getElementById('disputetype').value = data.disputeType;
+                document.getElementById('disputetitle').value = data.disputeTitle;
+                document.getElementById('disputedetails').value = data.disputeDetails;
+                //document.getElementById('disputeaction').value = data.disputeAction;
+                document.getElementById('disputeseverity').value = data.disputeSeverity;
+                //document.getElementById('participantaction').value = data.participantAction;
+                //document.getElementById('participantresponsetext').value = data.participantResponse;
+            },
+        });
+
+
+    }
+</script>

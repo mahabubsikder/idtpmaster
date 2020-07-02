@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/23/2020 18:12:44" ReportInfo.Modified="06/24/2020 14:07:53" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXwAP2EX6zK1wMb+Vw27PxK+IBWNxGxmrLWJtJOwJ1v/mj+ll/BnyXVa2XzcKZqQjF9TzKfkZuba1DAUXFA7mdSi">
+      <TableDataSource Name="Table" Alias="Transaction Report (Received)" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_TransactionReceived @FinancialInstitutionId">
+        <Column Name="Receiver" DataType="System.String"/>
+        <Column Name="Sender" DataType="System.String"/>
+        <Column Name="RT" DataType="System.String"/>
+        <Column Name="AccountNumber" DataType="System.String"/>
+        <Column Name="TC#" DataType="System.Int32"/>
+        <Column Name="Amount" DataType="System.Decimal"/>
+        <Column Name="Column" DataType="System.Int32" Calculated="true" Expression=""/>
+        <CommandParameter Name="FinancialInstitutionId" DataType="22" Expression="[FinancialInstitutionId]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="FinancialInstitutionId" DataType="System.Int32"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="75.6">
+      <TextObject Name="Text1" Width="718.2" Height="75.6" Dock="Fill" Text="Transaction Report (Received)" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="79.6" Width="718.2" Height="18.9">
+        <TextObject Name="Text15" Left="503.5" Width="47.25" Height="18.9" Text="Date:" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text16" Left="550.75" Width="170.1" Height="18.9" Text="[Date]" Format="Date" Format.Format="MMMM dd, yyyy" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+        <TextObject Name="Text17" Width="122.85" Height="18.9" Text="Institution Name:" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text18" Left="122.85" Width="179.55" Height="18.9" Text="[Transaction Report (Received).Receiver]" VertAlign="Center" Font="Arial, 10pt"/>
+        <ChildBand Name="Child2" Top="102.5" Width="718.2" Height="18.9">
+          <TextObject Name="Text19" Left="480.06" Width="73.33" Height="18.9" Text="Currency:" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text20" Left="555.66" Width="160.65" Height="18.9" Text="BDT" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="125.4" Width="718.2" Height="28.35">
+      <TextObject Name="Text5" Width="170.1" Height="28.35" Border.Lines="All" Text="Financial Institution" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="170.1" Width="132.3" Height="28.35" Border.Lines="Right, Top, Bottom" Text="Routing Number" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="302.4" Width="151.2" Height="28.35" Border.Lines="Right, Top, Bottom" Text="Account Number" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="453.6" Width="122.85" Height="28.35" Border.Lines="Right, Top, Bottom" Text="No. of Txn" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="576.45" Width="141.75" Height="28.35" Border.Lines="Right, Top, Bottom" Text="Amount" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="157.75" Width="718.2" Height="37.8" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text4" Width="170.1" Height="37.8" Border.Lines="Left, Right, Bottom" Text="[Transaction Report (Received).Sender]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="170.1" Width="132.3" Height="37.8" Border.Lines="Right, Bottom" Text="[Transaction Report (Received).RT]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Left="302.4" Width="151.2" Height="37.8" Border.Lines="Right, Bottom" Text="[Transaction Report (Received).AccountNumber]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="453.6" Width="122.85" Height="37.8" Border.Lines="Right, Bottom" Text="[Transaction Report (Received).TC#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text12" Left="576.45" Width="141.75" Height="37.8" Border.Lines="Right, Bottom" Text="[Transaction Report (Received).Amount]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="199.55" Width="718.2" Height="18.9">
+      <TextObject Name="Text14" Width="718.2" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

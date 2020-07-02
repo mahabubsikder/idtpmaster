@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/28/2020 21:28:16" ReportInfo.Modified="06/28/2020 21:55:06" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXwAP2EX6zK1wMb+Vw27PxK+IBWNxGxmrLWJtJOwJ1v/mj+ll/BnyXVa2XzcKZqQjF+cUtawfdE0gfPIFrdGXNMn">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_GetDebit @fromDate,@toDate">
+        <Column Name="Institution Name" DataType="System.String"/>
+        <Column Name="No of Transactions" DataType="System.Int32"/>
+        <Column Name="Dr Amount" DataType="System.Decimal"/>
+        <CommandParameter Name="fromDate" DataType="4" Expression="[fromDate]"/>
+        <CommandParameter Name="toDate" DataType="4" Expression="[toDate]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="fromDate" DataType="System.String" Expression="&quot;2020-06-27&quot;"/>
+    <Parameter Name="toDate" DataType="System.String" Expression="&quot;2020-06-28&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="94.5">
+      <TextObject Name="Text1" Width="718.2" Height="94.5" Dock="Fill" Text="Debit Transaction Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="98.5" Width="718.2" Height="37.8">
+        <TextObject Name="Text9" Left="500.85" Width="85.05" Height="18.9" Text="Date:" Font="Arial, 11pt, style=Bold"/>
+        <TextObject Name="Text10" Left="500.85" Top="18.9" Width="85.05" Height="18.9" Text="Currency:" Font="Arial, 11pt, style=Bold"/>
+        <TextObject Name="Text11" Left="585.9" Width="132.3" Height="18.9" Text="[fromDate]" HorzAlign="Right" Font="Arial, 10pt"/>
+        <TextObject Name="Text12" Left="587.35" Top="18.9" Width="132.3" Height="18.9" Text="BDT" HorzAlign="Right" Font="Arial, 10pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="140.3" Width="718.2" Height="28.35">
+      <TextObject Name="Text3" Width="245.7" Height="28.35" Border.Lines="All" Border.BottomLine.Width="1.5" Text="Institution Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text5" Left="244.57" Width="237.38" Height="28.35" Border.Lines="Right, Top, Bottom" Border.LeftLine.Width="1.5" Border.BottomLine.Width="1.5" Text="No. of Transactions" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text7" Left="480.82" Width="237.38" Height="28.35" Border.Lines="Right, Top, Bottom" Border.LeftLine.Width="1.5" Border.BottomLine.Width="1.5" Text="Dr Amount" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="172.65" Width="718.2" Height="26.35" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text2" Top="-2" Width="245.7" Height="28.35" Border.Lines="Left, Right, Bottom" Text="[Table.Institution Name]" Padding="4, 0, 2, 0" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="244.57" Top="-2" Width="237.38" Height="28.35" Border.Lines="Right, Bottom" Text="[Table.No of Transactions]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="480.82" Top="-2" Width="237.38" Height="28.35" Border.Lines="Right, Bottom" Text="[Table.Dr Amount]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="203" Width="718.2" Height="18.9">
+      <TextObject Name="Text8" Width="718.2" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

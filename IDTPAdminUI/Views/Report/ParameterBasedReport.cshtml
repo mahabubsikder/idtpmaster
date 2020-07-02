@@ -1,0 +1,94 @@
+﻿@model IDTPDomainModel.Models.ReportInfo
+@{
+    ViewData["Title"] = "ParameterBasedReport";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<style>
+    /*select {
+        -webkit-appearance: none;
+    }*/
+</style>
+<div class="container-fluid" style="padding:15px;">
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="@Url.Action("Index", "Report")">Report</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">@ViewBag.ReportTitle</a></li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <h1 class="text-right">@ViewBag.reportTitle</h1>
+        </div>
+    </div>
+    <form asp-action="ParameterBasedReport" method="post">
+        <div class="row mt-3">
+            <div class="col-lg-3">
+                @*@Html.DropDownList("ParameterValue", new SelectList(ViewBag.banklist, "Id", "Name"), "Select Bank", new { @id = "bankSelect", @class = "form-control", required = true })*@
+                <input hidden name="ReportPath" value="@ViewBag.ReportName" />
+                <input hidden name="ReportTitle" value="@ViewBag.ReportTitle" />
+
+                <div class="input-daterange input-group" id="date-range">
+                    <input type="text" class="form-control" name="FromDate" placeholder="From Date"> 
+                    <span class="input-group-addon b-0 text-white" style="padding:10px;background:#7974F7;">To</span>
+                    <input type="text" class="form-control" name="ToDate" placeholder="To Date">
+                </div>
+            </div>
+            <div class="col-lg-3 ml-0">
+                <button class="btn btn-outline-primary" type="submit" style="height:100%"> Submit</button>
+            </div>
+            
+        </div>
+    </form>
+    <div class="row mt-3">
+        <div id="exportButtons" class="col-lg-6">
+
+            <a class="btn btn-sm btn-secondary" asp-action="ExportToPDF" asp-route-Reportpath="@ViewBag.ReportName" asp-route-Parameter="@ViewBag.FinancialId">PDF</a>
+            <a class="btn btn-sm btn-secondary" asp-action="ExportToEXCEL" asp-route-Reportpath="@ViewBag.ReportName" asp-route-Parameter="@ViewBag.FinancialId" asp-route-SProc="@Model.SProcName">EXCEL</a>
+            <a class="btn btn-sm btn-secondary" asp-action="ExportToCSV" asp-route-Reportpath="@ViewBag.ReportName" asp-route-Parameter="@ViewBag.FinancialId" asp-route-SProc="@Model.SProcName">CSV</a>
+            <a class="btn btn-sm btn-secondary" asp-action="ExportToImage" asp-route-Reportpath="@ViewBag.ReportName" asp-route-Parameter="@ViewBag.FinancialId">Image</a>
+
+        </div>
+    </div>
+    <div class="row mt-3 ml-1">
+        @{
+            if (ViewBag.WebReport != null)
+            {
+                @await ViewBag.WebReport.Render()
+            }
+        }
+    </div>
+
+</div>
+
+
+
+<script src="~/plugins/moment/moment.js"></script>
+<script src="~/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<!-- Clock Plugin JavaScript -->
+<script src="~/plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
+<!-- Color Picker Plugin JavaScript -->
+<script src="~/plugins/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
+<script src="~/plugins/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
+<script src="~/plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+<script src="~/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<!-- Date range Plugin JavaScript -->
+<script src="~/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="~/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<script src="~/js/plugins-init/form-pickers-init.js"></script>
+<script>
+    $(document).ready(function () {
+        var error = '@TempData["ReportLoaded"]';
+        if (error != null && error != "") {
+            $('#exportButtons').show();
+        }
+        else {
+            $('#exportButtons').hide();
+        }
+    });
+
+</script>
+

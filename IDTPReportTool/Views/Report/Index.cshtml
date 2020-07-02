@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="padding:15px;">
+    <a class="btn btn-sm btn-secondary" asp-action="ExportToPDF" asp-route-Reportpath="@ViewBag.ReportName">PDF</a>
+    <a class="btn btn-sm btn-secondary"  asp-action="ExportToEXCEL" asp-route-Reportpath="@ViewBag.ReportName" asp-route-Parameter="@ViewBag.FinancialId">EXCEL</a>
+    <a class="btn btn-sm btn-secondary"  asp-action="ExportToCSV" asp-route-Reportpath="@ViewBag.ReportName" asp-route-Parameter="@ViewBag.FinancialId">CSV</a>
+    <a class="btn btn-sm btn-secondary" asp-action="ExportToImage" asp-route-Reportpath="@ViewBag.ReportName">Image</a>
+</div>
+
+
+@await ViewBag.WebReport.Render()

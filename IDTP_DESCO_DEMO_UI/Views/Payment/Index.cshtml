@@ -1,0 +1,93 @@
+﻿
+@using X.PagedList
+@using X.PagedList.Mvc.Core.Common
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<IDTPDescoDemoUI.Models.PaymentViewModel>
+
+@{
+    ViewData["Title"] = "Payment List";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<h3>Payments List</h3>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="text-align:center">
+                Payment ID
+            </th>
+            <th style="text-align:center">
+                Customer Name
+            </th>
+            <th style="text-align:center">
+                Account Number
+            </th>
+            <th style="text-align:center">
+                Contact Number
+            </th>
+            <th style="text-align:center">
+                Transaction ID
+            </th>
+            <th style="text-align:center">
+                Payment Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.AccountNumber)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.TransactionId)
+            </td>
+            <td style="text-align:center">
+                @Html.DisplayFor(modelItem => item.PaymentAmount)
+            </td>
+            @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page }),
+    new PagedListRenderOptions
+    {
+        DisplayItemSliceAndTotal = true,
+        ContainerDivClasses = new[] { "navigation" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" },
+    })
+@Html.ActionLink("Go to Customer List ==>", "Index", "Customer", null, new { @class = "btn btn-primary", @style = "float:right" })
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('ul.pagination > li.disabled > a').addClass('page-link');
+        });
+    </script>
+}
+
+

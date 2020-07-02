@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewData["Title"] = "ParticipantCapManagement";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Net Debit Cap Management</h4>
+                <div class="form-validation">
+                    <form class="form-valide" asp-action="UpdateDebitCap" method="post" autocomplete="off">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label" for="entityid">Institution ID</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" id="entityid" name="entityid" placeholder="Enter Institution Id here">
+                                <input name="Id" id="Id" hidden />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label" for="entityname">Institution Name</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" id="entityname" name="entityname" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label" for="currentcap">Net Debit Cap</label>
+                            <div class="col-lg-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">৳</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="NetDebitCap" id="currentcap">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-10">
+                                <button type="submit" class="btn btn-primary float-right" id="capChangeRequestSubmitButton">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        var txnId = '@TempData["Updated"]';
+
+        if (txnId == "True") {
+            swal("Updated Successfully!", "Net Debit Cap Updated", "success");
+        }
+        $("#entityid").blur(function (e) {
+            if ($('#entityid').val() != "") {
+                var entityid = $('#entityid').val();
+                var url = '/ParticipantCapAdmin/GetFinancialInsByLoginId/';
+                $.ajax({
+                    url: url,
+                    data: { loginId: entityid },
+                    type: 'POST',
+                    dataType: 'json',
+                    crossDomain: true,
+                    success: function (result) {
+                        if (result == null || result == "") {
+                            $('#entityname').val("");
+                        }
+                        else {
+                            $('#entityname').val(result.institutionName);
+                            $('#Id').val(result.id);
+                        }
+                    },
+                    error: function (err, scnd) {
+                        $('#entityname').val("");
+                    }
+                });
+            }
+            else {
+                $('#entityname').val("");
+            }
+        });
+    });
+
+</script>

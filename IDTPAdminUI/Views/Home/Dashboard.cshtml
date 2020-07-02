@@ -1,0 +1,295 @@
+﻿
+@{
+    ViewBag.Title = "Reports";
+    //Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+
+@*<script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#iframe_r1c1').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiMDU4MDYzNDctYjNmMS00ZjhmLWFiODctMmYxODg5NTZmZjViIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+            $('#iframe_r1c2').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiMDU4MDYzNDctYjNmMS00ZjhmLWFiODctMmYxODg5NTZmZjViIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+
+            $('#iframe_r2c1').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiYWQ1NjQ2MjUtNzFlYi00MmNiLThjNjctMTlmZDU4OGIyMjAxIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+
+            $('#iframe_r2c2').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiZWRhNjE3ZDEtYzQyNy00MDhlLThlMTEtNDRhMmY4NDlhODNiIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+
+            $('#iframe_r3c1').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiOTBhOWVmYTMtNWM0Mi00NTA3LWJmMWYtYzljYzg1NzdlNjI0IiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+
+            $('#iframe_r3c2').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiOGIxNDcyZmEtYjVlZS00MDA0LThhMmItMjg4NWMyYjRjZjg2IiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+
+            $('#iframe_r3c3').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiMDhjN2FhZWItOTNjMi00ODkxLWFiNjktZTAyNWU2NTBmMmUwIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+
+            $('#btnAsstAquis').click(function () {
+                //run function that records clicks
+                $("#popupcontents").html(
+                    '<span class="helper"></span>' +
+                    '<div>' +
+                    '<div class="popupCloseButton">X</div>' +
+                    '<iframe  class="detailviewiframe" src="https://app.powerbi.com/view?r=eyJrIjoiMzU2ODA5ZGMtMTU1OC00MzY1LTliZWItOTdiMDA1MTk3NTMxIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D"' +
+                    'frameborder="0"' +
+                    ' allowFullScreen="true">' +
+                    ' </iframe> ' +
+                    ' </div> ');
+            });
+
+            $('#btnAsstDispo').click(function () {
+                //run function that records clicks
+                $("#popupcontents").html(
+                    '<span class="helper"></span>' +
+                    '<div>' +
+                    '<div class="popupCloseButton">X</div>' +
+                    '<iframe class="detailviewiframe" src="https://app.powerbi.com/view?r=eyJrIjoiNWIyMDA2ZTYtZGM0My00YzUyLTgxYjEtNjBjMWRkZWVmN2U5IiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D"' +
+                    'frameborder="0"' +
+                    ' allowFullScreen="true">' +
+                    ' </iframe> ' +
+                    ' </div> ');
+            });
+
+            $('#btnMaintainCst').click(function () {
+                //run function that records clicks
+                $("#popupcontents").html(
+                    '<span class="helper"></span>' +
+                    '<div>' +
+                    '<div class="popupCloseButton">X</div>' +
+                    '<iframe class="detailviewiframe" src="https://app.powerbi.com/view?r=eyJrIjoiYWQ1NjQ2MjUtNzFlYi00MmNiLThjNjctMTlmZDU4OGIyMjAxIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D"' +
+                    'frameborder="0"' +
+                    ' allowFullScreen="true">' +
+                    ' </iframe> ' +
+                    ' </div> ');
+            });
+
+            $('#btnAccumDpr').click(function () {
+                //run function that records clicks
+                $("#popupcontents").html(
+                    '<span class="helper"></span>' +
+                    '<div>' +
+                    '<div class="popupCloseButton">X</div>' +
+                    '<iframe class="detailviewiframe" src="https://app.powerbi.com/view?r=eyJrIjoiZWRhNjE3ZDEtYzQyNy00MDhlLThlMTEtNDRhMmY4NDlhODNiIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D"' +
+                    'frameborder="0"' +
+                    ' allowFullScreen="true">' +
+                    ' </iframe> ' +
+                    ' </div> ');
+            });
+
+            $('#btnBookValue').click(function () {
+                //run function that records clicks
+                $("#popupcontents").html(
+                    '<span class="helper"></span>' +
+                    '<div>' +
+                    '<div class="popupCloseButton">X</div>' +
+                    '<iframe class="detailviewiframe" src="https://app.powerbi.com/view?r=eyJrIjoiOTBhOWVmYTMtNWM0Mi00NTA3LWJmMWYtYzljYzg1NzdlNjI0IiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D"' +
+                    'frameborder="0"' +
+                    ' allowFullScreen="true">' +
+                    ' </iframe> ' +
+                    ' </div> ');
+            });
+
+            $('#btnMaintCost').click(function () {
+                //run function that records clicks
+                $("#popupcontents").html(
+                    '<span class="helper"></span>' +
+                    '<div>' +
+                    '<div class="popupCloseButton">X</div>' +
+                    '<iframe class="detailviewiframe" src="https://app.powerbi.com/view?r=eyJrIjoiOGIxNDcyZmEtYjVlZS00MDA0LThhMmItMjg4NWMyYjRjZjg2IiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D"' +
+                    'frameborder="0"' +
+                    ' allowFullScreen="true">' +
+                    ' </iframe> ' +
+                    ' </div> ');
+            });
+
+            $('#btnLandValue').click(function () {
+                //run function that records clicks
+                $("#popupcontents").html(
+                    '<span class="helper"></span>' +
+                    '<div>' +
+                    '<div class="popupCloseButton">X</div>' +
+                    '<iframe class="detailviewiframe" src="https://app.powerbi.com/view?r=eyJrIjoiMDhjN2FhZWItOTNjMi00ODkxLWFiNjktZTAyNWU2NTBmMmUwIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D"' +
+                    'frameborder="0"' +
+                    ' allowFullScreen="true">' +
+                    ' </iframe> ' +
+                    ' </div> ');
+            });
+        });
+
+        $(window).load(function () {
+            $(".trigger_popup_fricc").click(function () {
+                $('.hover_bkgr_fricc').show();
+            });
+            $('.hover_bkgr_fricc').click(function () {
+                $('.hover_bkgr_fricc').hide();
+            });
+            $('.popupCloseButton').click(function () {
+                $('.hover_bkgr_fricc').hide();
+            });
+        });
+    </script>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#dailyTransactionStatus').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiYjM2NTkwOGUtMmM5YS00ZGE2LTg3YWEtOThjYjM4NjkzZTkxIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+        $('#settlementCountbySlots').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiOGY4ZDE5ZjItMWM3ZC00ZTViLWJkMGQtYzkzNWI5YjgyOGNkIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+        $('#governmentPayment').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiMDUxMDhiOTMtNjAwOS00NGMwLTg5MDktNmViM2UxNjgzY2I2IiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+        $('#transactionSettlementStatus').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiMTdiMTkyODQtYzliOS00ZjlmLWI0NmQtYzYxMWRiMzBkMDA4IiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+        $('#netDebitCap').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiNzhhNDllMzUtZTkwMS00Zjg2LTlkYzYtNjk3NGQzNGMxMTRjIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+        $('#monthlyDisputeStatus').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiMTEzOTFmNGMtMmQ3Yi00NGFlLTg1YTgtNWY5MGQ2NTdmMmNiIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+        $('#disputeBySeverity').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiMzVhNWViYTMtMjVmZi00NzEzLWI4M2EtNTI3NmZjODcyM2JkIiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+        $('#paymentAuthorizationStatus').prop("src", "https://app.powerbi.com/view?r=eyJrIjoiNzk1ZTJiZmMtYTFhZS00NDdjLWI0YzQtODgwYjMyZjc2ZGE2IiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D")
+    });
+</script>
+<style>
+    #dashboard{
+        height:100vh;
+    }
+</style>
+<div class="container-fluid h-100">
+    <div id="dashboard">
+        <div class="row" style="height:50%">
+            <div class="col-lg-5">
+                <iframe id="dailyTransactionStatus" style="width:100%;height:100%;" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+            <div class="col-lg-5">
+                <iframe id="settlementCountbySlots" style="width:100%;height:100%;" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+            <div class="col-lg-2" >
+                <div class="row" style="height:50%"> 
+                    <iframe id="governmentPayment" frameborder="0" allowFullScreen="true"></iframe>
+                </div>
+                <div class="row" style="height:50%">
+                    <iframe id="transactionSettlementStatus" frameborder="0" allowFullScreen="true"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height:50%">
+            <div class="col-lg-5">
+                <iframe id="netDebitCap" style="width:100%;height:100%;" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+            <div class="col-lg-5">
+                <iframe id="monthlyDisputeStatus" style="width:100%;height:100%;" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+            <div class="col-lg-2" >
+                <div class="row" style="height:50%">
+                    <iframe id="disputeBySeverity" frameborder="0" allowFullScreen="true"></iframe>
+                </div>
+                <div class="row" style="height:50%">
+                    <iframe id="paymentAuthorizationStatus" frameborder="0" allowFullScreen="true"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+@*<div style="width:100%">
+    <div style="width:100%">
+        <div style="width:33%; float:left">
+            <iframe id="dailyTransactionStatus" width="400" height="300" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+        <div style="width:33%; float:left">
+            <iframe id="settlementCountbySlots" width="400" height="300" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+        <div style="width:33%; float:left">
+            <div style="width:100%">
+                <iframe id="governmentPayment" width="225" height="175" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+            <div style="width:100%">
+                <iframe id="transactionSettlementStatus" width="225" height="175" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+        </div>
+    </div>
+    <div style="width:100%">
+        <div style="width:33%; float:left">
+            <iframe id="netDebitCap" width="400" height="300" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+        <div style="width:33%; float:left">
+            <iframe id="monthlyDisputeStatus" width="400" height="300" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+        <div style="width:33%; float:left">
+            <div style="width:100%">
+                <iframe id="disputeBySeverity" width="225" height="175" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+            <div style="width:100%">
+                <iframe id="paymentAuthorizationStatus" width="225" height="175" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+        </div>
+    </div>
+</div>*@
+@*<div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <button id="btnAsstAquis" type="button" class="btn-default trigger_popup_fricc">Details</button>
+                <div class="clear"></div>
+                <iframe id="iframe_r1c1" class="pageviewiframe"
+                        allowFullScreen="true"
+                        frameborder="0">
+                </iframe>
+            </div>
+            <div class="col-md-6">
+                <button id="btnAsstDispo" type="button" class="btn-default trigger_popup_fricc">Details</button>
+                <div class="clear"></div>
+                <iframe id="iframe_r1c2" class="pageviewiframe"
+                        allowFullScreen="true"
+                        frameborder="0">
+                </iframe>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button id="btnMaintainCst" type="button" class="btn-default trigger_popup_fricc">Details</button>
+                <div class="clear"></div>
+                <iframe id="iframe_r2c1" class="pageviewiframe"
+                        allowFullScreen="true"
+                        frameborder="0"></iframe>
+            </div>
+            <div class="col-md-6">
+                <button id="btnAccumDpr" type="button" class="btn-default trigger_popup_fricc">Details</button>
+                <div class="clear"></div>
+                <iframe id="iframe_r2c2" class="pageviewiframe"
+                        allowFullScreen="true"
+                        frameborder="0"></iframe>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div>
+                    <button id="btnBookValue" type="button" class="btn-default trigger_popup_fricc">Details</button>
+                    <div class="clear"></div>
+                    <iframe id="iframe_r3c1" class="pagebottomviewiframe"
+                            allowFullScreen="true"
+                            frameborder="0"></iframe>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div>
+                    <button id="btnMaintCost" type="button" class="btn-default trigger_popup_fricc">Details</button>
+                    <div class="clear"></div>
+                    <iframe id="iframe_r3c2" class="pagebottomviewiframe"
+                            allowFullScreen="true"
+                            frameborder="0"></iframe>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div>
+                    <button id="btnLandValue" type="button" class="btn-default trigger_popup_fricc">Details</button>
+                    <div class="clear"></div>
+                    <iframe id="iframe_r3c3" class="pagebottomviewiframe"
+                            allowFullScreen="true"
+                            frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+<div id="popupcontents" class="hover_bkgr_fricc">
+    @*<span class="helper"></span>
+        <div>
+            <div class="popupCloseButton">X</div>
+            <iframe class="detailviewiframe" src="https://app.powerbi.com/view?r=eyJrIjoiNmM2M2M4NGUtNTM1Yy00NjU2LTgyOWUtZDBkZWFjZTY1ZjI0IiwidCI6Ijg0NzY4YTJiLWUxYTMtNDk4NS04MDBhLTY0NjNjMjBhNjVkNSIsImMiOjEwfQ%3D%3D"
+                    frameborder="0"
+                    allowFullScreen="true">
+            </iframe>
+        </div>*@
+</div>

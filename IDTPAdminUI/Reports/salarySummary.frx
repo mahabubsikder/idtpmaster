@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/23/2020 21:13:59" ReportInfo.Modified="06/25/2020 18:31:56" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="White" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXwAP2EX6zK1wMb+Vw27PxK+IBWNxGxmrLWJtJOwJ1v/mj+ll/BnyXVa2XzcKZqQjF+Bweb9DvovB06hxk1cDqGD">
+      <TableDataSource Name="Table" Alias="SalarySummary" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_SalarySummary">
+        <Column Name="Entity Name" DataType="System.String"/>
+        <Column Name="Total No. of Accounts Disbursed" DataType="System.String"/>
+        <Column Name="Amount" DataType="System.Double"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Total Name="Total" Expression="[SalarySummary.Amount]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="75.6">
+      <TextObject Name="Text1" Width="718.2" Height="75.6" Dock="Fill" Text="Salary Summary" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="79.6" Width="718.2" Height="18.9">
+        <TextObject Name="Text9" Left="538.65" Width="47.25" Height="18.9" Text="Date:" HorzAlign="Right" Font="Arial, 11pt, style=Bold"/>
+        <TextObject Name="Text10" Left="585.9" Width="132.3" Height="18.9" Text="[Date]" Format="Date" Format.Format="MMMM dd, yyyy" HorzAlign="Right" Font="Arial, 10pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="102.5" Width="718.2" Height="37.8">
+      <TextObject Name="Text3" Width="272.16" Height="37.8" Border.Lines="All" Text="Entity Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="270.65" Width="238.52" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Total No. of Accounts Disbursed" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="508.41" Width="209.79" Height="37.8" Border.Lines="Right, Top, Bottom" Text="Amount" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="144.3" Width="718.2" Height="37.8" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text2" Width="272.16" Height="37.8" Border.Lines="Left, Right, Bottom" Text="[SalarySummary.Entity Name]" Padding="4, 0, 2, 0" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="270.65" Width="238.52" Height="37.8" Border.Lines="Right, Bottom" Text="[SalarySummary.Total No. of Accounts Disbursed]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="508.41" Width="209.79" Height="37.8" Border.Lines="Right, Bottom" Text="[SalarySummary.Amount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </DataBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="186.1" Width="718.2" Height="32.13">
+      <TextObject Name="Text11" Width="509.54" Height="32.13" Border.Lines="Left, Right, Bottom" Text="Total Paid Amount:" HorzAlign="Right" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text12" Left="509.17" Width="207.9" Height="32.13" Border.Lines="Right, Bottom" Text="[Total]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ColumnFooterBand>
+    <PageFooterBand Name="PageFooter1" Top="222.23" Width="718.2" Height="18.9">
+      <TextObject Name="Text8" Width="718.2" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

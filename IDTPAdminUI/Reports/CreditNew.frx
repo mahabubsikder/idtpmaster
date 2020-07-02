@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/28/2020 21:03:40" ReportInfo.Modified="06/28/2020 21:53:12" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXwAP2EX6zK1wMb+Vw27PxK+IBWNxGxmrLWJtJOwJ1v/mj+ll/BnyXVa2XzcKZqQjF/FBmULIm7dc2XinR1PzRnZ">
+      <TableDataSource Name="Table" Alias="Credit Transaction Report" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_GetCredit @fromDate , @toDate">
+        <Column Name="Institution Name" DataType="System.String"/>
+        <Column Name="No. of Transaction" DataType="System.Int32"/>
+        <Column Name="Cr Amount" DataType="System.Decimal"/>
+        <CommandParameter Name="fromDate" DataType="4" Expression="[fromDate]"/>
+        <CommandParameter Name="toDate" DataType="4" Expression="[toDate]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="fromDate" DataType="System.String" Expression="&quot;2020-06-28&quot;"/>
+    <Parameter Name="toDate" DataType="System.String" Expression="&quot;2020-06-28&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="103.95">
+      <TextObject Name="Text1" Width="718.2" Height="103.95" Dock="Fill" Text="Credit Transaction Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="107.95" Width="718.2" Height="37.8">
+        <TextObject Name="Text9" Left="481.95" Width="94.5" Height="18.9" Text="Date:" HorzAlign="Right" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+        <TextObject Name="Text10" Left="481.95" Top="18.9" Width="94.5" Height="18.9" Text="Currency:" HorzAlign="Right" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+        <TextObject Name="Text11" Left="576.45" Width="141.75" Height="18.9" Text="[fromDate]" HorzAlign="Right" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+        <TextObject Name="Text12" Left="576.45" Top="18.9" Width="141.75" Height="18.9" Text="BDT" HorzAlign="Right" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="149.75" Width="718.2" Height="28.35">
+      <TextObject Name="Text3" Width="245.7" Height="28.35" Border.Lines="All" Border.BottomLine.Width="1.5" Text="Institution Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text5" Left="244.57" Width="237.38" Height="28.35" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="No. of Transaction" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text7" Left="480.82" Width="237.38" Height="28.35" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Cr Amount" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="182.1" Width="718.2" Height="27.35" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text2" Top="-1" Width="245.7" Height="28.35" Border.Lines="Left, Right, Bottom" Text="[Credit Transaction Report.Institution Name]" Padding="4, 0, 2, 0" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="244.57" Top="-1" Width="237.38" Height="28.35" Border.Lines="Right, Bottom" Text="[Credit Transaction Report.No. of Transaction]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="480.82" Top="-1" Width="237.38" Height="28.35" Border.Lines="Right, Bottom" Text="[Credit Transaction Report.Cr Amount]" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="213.45" Width="718.2" Height="18.9">
+      <TextObject Name="Text8" Width="718.2" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

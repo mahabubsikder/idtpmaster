@@ -1,0 +1,740 @@
+﻿@page
+@model RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #main-div {
+        margin: 0 auto;
+        float: none;
+        display: block;
+    }
+
+    .disabledTab {
+        pointer-events: none;
+    }
+
+        .disabledTab:hover {
+            cursor: not-allowed;
+        }
+</style>
+<div id="main-div" style="margin-top: 5%">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Profile Management</h4>
+                    <p class="text-muted"><code></code></p>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="default-tab">
+                        <ul class="nav nav-tabs mb-3" role="tablist">
+                            <li class="nav-item">
+                                <a id="Admin" class="userType nav-link " data-toggle="tab" href="#user">User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="Business" class="userType nav-link" data-toggle="tab" href="#business-div">Business</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="GovtInstitute" class="userType nav-link" data-toggle="tab" href="#govtentity">Government Entity</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="FinInstitute" class="userType nav-link" data-toggle="tab" href="#fininancialinstitution">Financial Institution</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="user" role="tabpanel">
+                                <div class="p-t-15">
+                                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Admin User Info</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="p-t-15">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" />
+                                                                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <input asp-for="Input.LastName" class="form-control" placeholder="Last Name" />
+                                                                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                                                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <input asp-for="Input.ContactNo" class="form-control" placeholder="Mobile Number" />
+                                                                <span asp-validation-for="Input.ContactNo" class="text-danger"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <input asp-for="Input.NID" class="form-control" placeholder="NID" />
+                                                                <span asp-validation-for="Input.NID" class="text-danger"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                                                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                                                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <input asp-for="Input.UserId" class="form-control" placeholder="User ID" />
+                                                                <span asp-validation-for="Input.UserId" class="text-danger"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input hidden asp-for="Input.UserType" value="Admin" id="user_type">
+                                        <div class="general-button" style="text-align: right">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="business-div">
+                                <div class="p-t-15">
+                                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                        <div id="accordion-one" class="accordion">
+
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="mb-0"> Business Info</h5>
+                                                </div>
+                                                <div>
+                                                    <div class="card-body">
+                                                        <div class="p-t-15">
+                                                            <div class="row">
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.BusinessName" class="form-control" placeholder="Full Name" />
+                                                                        <span asp-validation-for="Input.BusinessName" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.AddressLine" class="form-control" placeholder="Address Line 1" />
+                                                                        <span asp-validation-for="Input.AddressLine" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.District" class="form-control" placeholder="District" />
+                                                                        <span asp-validation-for="Input.District" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.PostalCode" class="form-control" placeholder="Postal Code" />
+                                                                        <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.BusinessContactNo" class="form-control" placeholder="Contact Number" />
+                                                                        <span asp-validation-for="Input.BusinessContactNo" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.BusinessEmail" class="form-control" placeholder="Contact Email" />
+                                                                        <span asp-validation-for="Input.BusinessEmail" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.BusinessNID" class="form-control" placeholder="Contact NID" />
+                                                                        <span asp-validation-for="Input.BusinessNID" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.BusinessVatId" class="form-control" placeholder="VAT ID" />
+                                                                        <span asp-validation-for="Input.BusinessVatId" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.BusinessTIN" class="form-control" placeholder="TIN" />
+                                                                        <span asp-validation-for="Input.BusinessTIN" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.BusinessBIN" class="form-control" placeholder="BIN" />
+                                                                        <span asp-validation-for="Input.BusinessBIN" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.BusinessId" class="form-control" placeholder="Business ID (e.g- samplename@idtp)" />
+                                                                        <span asp-validation-for="Input.BusinessId" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <h5 style="color:#7974F7">Business ID will be used for Log In</h5>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                                                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                                                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="mb-0">Bank Info</h5>
+                                                </div>
+                                                <div>
+                                                    <div class="card-body">
+                                                        <div class="p-t-15">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <select asp-for="Input.BusinessBankName" class="form-control">
+                                                                            <option value="">Bank Name</option>
+                                                                            <option value="dbl">Dutch Bangla Bank Ltd.</option>
+                                                                            <option value="ebl">Eastern Bank Ltd.</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <select asp-for="Input.BusinessBranchName" class="form-control">
+                                                                            <option value="">Branch Name</option>
+                                                                            <option value="agargoan">Agargoan</option>
+                                                                            <option value="banani">Banani</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.BusinessAccountNumber" type="text" class="form-control" placeholder="Account Number">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input hidden asp-for="Input.UserType" value="Business" id="_type">
+                                        <div class="general-button" style="text-align: right">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="govtentity">
+                                <div class="p-t-15">
+                                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                        <div id="accordion-one" class="accordion">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="mb-0"> Entity Info</h5>
+                                                </div>
+                                                <div>
+                                                    <div class="card-body">
+                                                        <div class="p-t-15">
+                                                            <div class="row">
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.GovtInstitutionName" class="form-control" placeholder="Full Name" />
+                                                                        <span asp-validation-for="Input.GovtInstitutionName" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.AddressLine" class="form-control" placeholder="Address Line 1" />
+                                                                        <span asp-validation-for="Input.AddressLine" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.District" class="form-control" placeholder="District" />
+                                                                        <span asp-validation-for="Input.District" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.PostalCode" class="form-control" placeholder="Postal Code" />
+                                                                        <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.GovtContactNo" class="form-control" placeholder="Contact Number" />
+                                                                        <span asp-validation-for="Input.GovtContactNo" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.GovtBIN" class="form-control" placeholder="BIN" />
+                                                                        <span asp-validation-for="Input.GovtBIN" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.GovtVID" class="form-control" placeholder="Virtual ID" />
+                                                                        <span asp-validation-for="Input.GovtVID" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <h5 style="color:#7974F7">This Virtual ID will be used for Log In</h5>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                                                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                                                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                @*<div class="col-lg-6">
+                <div class="form-group">
+                    <input asp-for="Input.GovtId" class="form-control" placeholder="Entity ID" />
+                    <span asp-validation-for="Input.GovtId" class="text-danger"></span>
+                </div>
+        </div>*@
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="mb-0">Bank Info</h5>
+                                                </div>
+                                                <div>
+                                                    <div class="card-body">
+                                                        <div class="p-t-15">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <select asp-for="Input.GovtBankName" class="form-control">
+                                                                            <option value="">Bank Name</option>
+                                                                            <option value="dbl">Dutch Bangla Bank Ltd.</option>
+                                                                            <option value="ebl">Eastern Bank Ltd.</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <select asp-for="Input.GovtBranchName" class="form-control">
+                                                                            <option value="">Branch Name</option>
+                                                                            <option value="agargoan">Agargoan</option>
+                                                                            <option value="banani">Banani</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.GovtAccountNumber" class="form-control" placeholder="Account Number" />
+                                                                        <span asp-validation-for="Input.GovtAccountNumber" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="mb-0">Contact Reference</h5>
+                                                </div>
+                                                <div>
+                                                    <div class="card-body">
+                                                        <div class="p-t-15">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonName" class="form-control" placeholder="Contact Person Name" />
+                                                                        <span asp-validation-for="Input.ContactPersonName" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonEmail" class="form-control" placeholder="Email" />
+                                                                        <span asp-validation-for="Input.ContactPersonEmail" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonMobile" class="form-control" placeholder="Contact Number" />
+                                                                        <span asp-validation-for="Input.ContactPersonMobile" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonDesignation" class="form-control" placeholder="Designation" />
+                                                                        <span asp-validation-for="Input.ContactPersonDesignation" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonOffice" class="form-control" placeholder="Office" />
+                                                                        <span asp-validation-for="Input.ContactPersonOffice" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonNID" class="form-control" placeholder="NID" />
+                                                                        <span asp-validation-for="Input.ContactPersonNID" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input hidden asp-for="Input.UserType" value="GovtInstitute">
+                                        <div class="general-button" style="text-align: right">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="fininancialinstitution">
+                                <div class="p-t-15">
+                                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                        <div id="accordion-one" class="accordion">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="mb-0">Institution Info</h5>
+                                                </div>
+                                                <div>
+                                                    <div class="card-body">
+                                                        <div class="p-t-15">
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <h6 style="display:inline;padding-right:10px;">Institution Type: </h6>
+                                                                        <label class="radio-inline mr-3">
+                                                                            <input type="radio" asp-for="Input.InstitutionType" value="BANK"> Bank
+                                                                        </label>
+                                                                        <label class="radio-inline mr-3">
+                                                                            <input type="radio" asp-for="Input.InstitutionType" value="MFS"> MFS
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" asp-for="Input.InstitutionType" value="PSP"> PSP
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.FinancialInstitutionName" class="form-control" placeholder="Full Name" />
+                                                                        <span asp-validation-for="Input.FinancialInstitutionName" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.AddressLine" class="form-control" placeholder="Address Line 1" />
+                                                                        <span asp-validation-for="Input.AddressLine" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.District" class="form-control" placeholder="District" />
+                                                                        <span asp-validation-for="Input.District" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.PostalCode" class="form-control" placeholder="Postal Code" />
+                                                                        <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.FinancialContactNo" class="form-control" placeholder="Contact Number" />
+                                                                        <span asp-validation-for="Input.FinancialContactNo" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.FinancialEmail" class="form-control" placeholder="Institution Email" />
+                                                                        <span asp-validation-for="Input.FinancialEmail" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.FinancialTIN" class="form-control" placeholder="TIN" />
+                                                                        <span asp-validation-for="Input.FinancialTIN" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.FinancialBIN" class="form-control" placeholder="BIN" />
+                                                                        <span asp-validation-for="Input.FinancialBIN" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.FinancialVirtualID" class="form-control" placeholder="Virtual ID" />
+                                                                        <span asp-validation-for="Input.FinancialVirtualID" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <h5 style="color:#7974F7">This Virtual ID will be used for Log In</h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.FinancialSwiftCode" class="form-control" placeholder="Swift Code" />
+                                                                        <span asp-validation-for="Input.FinancialSwiftCode" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.FinancialVatId" class="form-control" placeholder="VAT ID" />
+                                                                        <span asp-validation-for="Input.FinancialVatId" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                                                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                                                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.FinancialId" class="form-control" placeholder="BB Reference ID" />
+                                                                        <span asp-validation-for="Input.FinancialId" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="mb-0">Contact Reference</h5>
+                                                </div>
+                                                <div>
+                                                    <div class="card-body">
+                                                        <div class="p-t-15">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonName" class="form-control" placeholder="Contact Person Name" />
+                                                                        <span asp-validation-for="Input.ContactPersonName" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonEmail" class="form-control" placeholder="Email" />
+                                                                        <span asp-validation-for="Input.ContactPersonEmail" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonMobile" class="form-control" placeholder="Contact Number" />
+                                                                        <span asp-validation-for="Input.ContactPersonMobile" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonDesignation" class="form-control" placeholder="Designation" />
+                                                                        <span asp-validation-for="Input.ContactPersonDesignation" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonOffice" class="form-control" placeholder="Office" />
+                                                                        <span asp-validation-for="Input.ContactPersonOffice" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.ContactPersonNID" class="form-control" placeholder="NID" />
+                                                                        <span asp-validation-for="Input.ContactPersonNID" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="mb-0">Additional Information</h5>
+                                                </div>
+                                                <div>
+                                                    <div class="card-body">
+                                                        <div class="p-t-15">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input asp-for="Input.InstitutionLicenseNumber" class="form-control" placeholder="Institution License No" />
+                                                                        <span asp-validation-for="Input.InstitutionLicenseNumber" class="text-danger"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input hidden asp-for="Input.UserType" value="FinInstitute">
+                                        <div class="general-button" style="text-align: right">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    @*</form>*@
+
+                    @*<button type="submit" style="text-align: right" class="btn btn-primary">Register</button>*@
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        var names = [];
+        $("form").each(function () {
+            names.push(this.id);
+        });
+        var form = '@TempData["form"]';
+
+        if (form != null && form != "") {
+            $('#' + form).removeClass('userType');
+            $('#' + form).click();
+            $('.userType').addClass('disabledTab')
+        }
+
+    });
+    $("#cardNumber").keypress(function (e) {
+        var length = jQuery(this).val().length;
+        if (length > 18) {
+            return false;
+        } else if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        } else if ((length == 0) && (e.which == 48)) {
+            return false;
+        }
+    });
+    $("#cvv").keypress(function (e) {
+        var length = jQuery(this).val().length;
+        if (length > 2) {
+            return false;
+        } else if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        } else if ((length == 0) && (e.which == 48)) {
+            return false;
+        }
+    });
+    $("#expirationdate").keypress(function (e) {
+        var length = jQuery(this).val().length;
+        if (length > 4) {
+            return false;
+        } else if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        } else if ((length == 0) && (e.which == 48)) {
+            return false;
+        }
+    });
+    $("#userMobileNumber").keypress(function (e) {
+
+        var a = [];
+        var k = e.which;
+
+        for (i = 48; i < 59; i++)
+            a.push(i);
+
+        if (!(a.indexOf(k) >= 0))
+            e.preventDefault();
+    });
+
+
+    $('#expirationdate').keyup(function () {
+        var foo = $(this).val().split("/").join(""); // remove hyphens
+        if (foo.length > 0) {
+            foo = foo.match(new RegExp('.{1,2}', 'g')).join("/");
+        }
+        $(this).val(foo);
+    });
+
+
+</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

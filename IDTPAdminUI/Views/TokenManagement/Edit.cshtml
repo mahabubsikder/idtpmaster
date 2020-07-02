@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Create a new app for API access</h3><br>
+                    <form asp-action="GetMasterToken">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group row">
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" name="AppName" placeholder="Enter App Name" required>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="text" readonly class="form-control" placeholder="Token" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-4">
+                                <h6 style="display:inline;padding-right:10px;">App Restrictions </h6>
+                                <label class="radio-inline mr-3">
+                                    <input type="radio" name="some" value="BANK"> None
+                                </label>
+                                <label class="radio-inline mr-3">
+                                    <input id="ipAddress" type="radio" name="some" value="MFS"> IP Addresses
+                                </label>
+                                <label class="radio-inline">
+                                    <input id="website" type="radio" name="some" value="PSP"> Websites
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-4">
+                                <div id="ipAddressInput"></div>
+                            </div>
+                        </div>
+                            <div class="form-group row">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-4 ">
+                                    <button type="submit" id="btnSubmit" class="btn btn-primary float-right">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function divFunction() {
+        var newDiv = $('<input type="text" class="form-control" placeholder="Token" required>');
+        $('#ipAddress').append(newDiv);
+    }
+    $(document).ready(function () {
+        $('#ipAddress').click(function () {
+            alert('oi')
+        });
+    });
+</script>
+

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/17/2020 17:41:54" ReportInfo.Modified="06/25/2020 19:40:08" ReportInfo.CreatorVersion="2020.3.8.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="White" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqf+hczMXVwlIGXQgpTdtRHyH90bvi1su9br1DWrGeeuthZvynN8+M94X+0p+367hvHWYXtVoZUxwvjpFxAHsn4D7ZG6YKAFEr4zjI3p5ltRQdOUFXcXaY68nAaYX+AXKdyY31vTYwb28JZfXkDU5ESnKcIHRIqpB08qgwTvraGXwAP2EX6zK1wMb+Vw27PxK+IBWNxGxmrLWJtJOwJ1v/mj+ll/BnyXVa2XzcKZqQjF8IuWmg+ugJmn1W7Qw743E9">
+      <TableDataSource Name="Table" Alias="Settled Status Report(Unsettled Transactions)" DataType="System.Int32" Enabled="true" SelectCommand="EXEC IDTP_RPT_UnsettledTransaction">
+        <Column Name="Participant Name" DataType="System.String"/>
+        <Column Name="Number of Unsettled Transactions" DataType="System.Int32"/>
+        <Column Name="Total Unsettled Amout" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="141.75">
+      <TextObject Name="Text1" Width="718.2" Height="141.75" Dock="Fill" Text="Settlement Status Report (Unsettled Transactions)" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="145.75" Width="718.2" Height="28.35">
+        <TextObject Name="Text9" Left="538.65" Width="56.7" Height="28.35" Text="Date:" HorzAlign="Right" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+        <TextObject Name="Text10" Left="595.35" Width="122.85" Height="28.35" Text="[Date]" Format="Date" Format.Format="MMMM dd, yyyy" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="178.1" Width="718.2" Height="47.25">
+      <TextObject Name="Text3" Width="245.7" Height="47.25" Border.Lines="All" Border.BottomLine.Width="1.5" Text="Participant Name" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text5" Left="243.81" Width="238.14" Height="47.25" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="No. of Unsettled Txn." HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text7" Left="480.06" Width="238.14" Height="47.25" Border.Lines="Right, Top, Bottom" Border.BottomLine.Width="1.5" Text="Total Unsettled Amout" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="229.35" Width="718.2" Height="37.8" EvenStyle="EvenRows" DataSource="Table">
+      <TextObject Name="Text2" Width="245.7" Height="37.8" Border.Lines="Left, Right, Bottom" Text="[Settled Status Report(Unsettled Transactions).Participant Name]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="243.81" Width="238.14" Height="37.8" Border.Lines="Right, Bottom" Text="[Settled Status Report(Unsettled Transactions).Number of Unsettled Transactions]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="480.06" Width="238.14" Height="37.8" Border.Lines="Right, Bottom" Text="[Settled Status Report(Unsettled Transactions).Total Unsettled Amout]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="271.15" Width="718.2" Height="18.9">
+      <TextObject Name="Text8" Width="718.2" Height="18.9" Dock="Fill" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

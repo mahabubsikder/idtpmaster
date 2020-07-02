@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ReceiverUI.Models
+{
+    public class TransactionListView
+    {
+        public string SenderName { get; set; }
+        public string SenderAccountNo { get; set; }
+        public string SenderBankName { get; set; }
+        public string ReceiverAccountNo { get; set; }
+        public string ReceiverName { get; set; }
+        public string ReceiverBankName { get; set; }
+        public decimal Amount { get; set; }
+        public DateTime TransactionDate { get; set; }
+
+    }
+}

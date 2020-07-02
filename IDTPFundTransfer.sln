@@ -1,0 +1,196 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BBAPI", "BBAPI\BBAPI.csproj", "{EEB2C480-824F-411B-9794-AAF34F1B564D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReceiverAPI", "ReceiverAPI\ReceiverAPI.csproj", "{02775295-44D9-4737-8081-0DDA0A920E68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenderUI", "SenderUI\SenderUI.csproj", "{CFB09F41-390C-4700-BDED-1DD45DC37442}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTP.Utility", "IDTP.Utility\IDTP.Utility.csproj", "{FE4DFB83-6593-42C1-A738-8D7F789B2C33}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPDescoDemoUI", "IDTP_DESCO_DEMO_UI\IDTPDescoDemoUI.csproj", "{2D626C2B-7195-4902-9B9A-352824AD3C99}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPDescoDemoAPI", "IDTP_DESCO_DemoAPI\IDTPDescoDemoAPI.csproj", "{55B75869-E239-4997-A0C3-31A239D85CCA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPBusinessLayer", "IDTPBusinessLayer\IDTPBusinessLayer.csproj", "{98F03F7E-2620-4AF6-BFD6-F6D21FB9EEFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPCryptography", "IDTPCryptography\IDTPCryptography.csproj", "{85E467C0-44B4-4063-8FC5-579376D39EE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPDataAccessLayer", "IDTPDataAccessLayer\IDTPDataAccessLayer.csproj", "{DA2CE688-2F6B-4B40-BB0D-301FB98D3E29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPDataTransferObjects", "IDTPDataTransferObjects\IDTPDataTransferObjects.csproj", "{D779E4A2-129D-4A4B-9D22-1EEACCD55BA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPDomainModel", "IDTPDomainModel\IDTPDomainModel.csproj", "{E5A7946F-5F18-4E71-97E6-4BE15D028EA2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPKeyVaultManagement", "IDTPKeyVaultManagement\IDTPKeyVaultManagement.csproj", "{0ADF8608-D1FC-49D1-B364-8B00C5970596}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPServiceController", "IDTPServiceController\IDTPServiceController.csproj", "{FA5E25A2-AD44-4F1D-9942-27AFC93ECBFD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FundTransferUI", "FundTransferUI\FundTransferUI.csproj", "{07244958-C7BF-4DCD-912D-BDA23B9117A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GovtBillingSystemUI", "GovtBillingSystemUI\GovtBillingSystemUI.csproj", "{F423DD76-371D-472C-B9EB-2A2FD57C690C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPApiService", "IDTPApiService\IDTPApiService.csproj", "{5AD888A6-B42C-4A00-B5A2-DB29F131398F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPReportTool", "IDTPReportTool\IDTPReportTool.csproj", "{A1CBF9D6-A64F-4B47-9DFB-118EC20CA13F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDTPAdminUI", "IDTPAdminUI\IDTPAdminUI.csproj", "{2B6CDBC5-3F85-4C99-A9C7-09A783A91D7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceiverUI", "ReceiverUI\ReceiverUI.csproj", "{87EF017E-7FC7-468E-9F86-875895670EE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEB2C480-824F-411B-9794-AAF34F1B564D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB2C480-824F-411B-9794-AAF34F1B564D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB2C480-824F-411B-9794-AAF34F1B564D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB2C480-824F-411B-9794-AAF34F1B564D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02775295-44D9-4737-8081-0DDA0A920E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02775295-44D9-4737-8081-0DDA0A920E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02775295-44D9-4737-8081-0DDA0A920E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02775295-44D9-4737-8081-0DDA0A920E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFB09F41-390C-4700-BDED-1DD45DC37442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFB09F41-390C-4700-BDED-1DD45DC37442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFB09F41-390C-4700-BDED-1DD45DC37442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFB09F41-390C-4700-BDED-1DD45DC37442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4DFB83-6593-42C1-A738-8D7F789B2C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4DFB83-6593-42C1-A738-8D7F789B2C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4DFB83-6593-42C1-A738-8D7F789B2C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4DFB83-6593-42C1-A738-8D7F789B2C33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D626C2B-7195-4902-9B9A-352824AD3C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D626C2B-7195-4902-9B9A-352824AD3C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D626C2B-7195-4902-9B9A-352824AD3C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D626C2B-7195-4902-9B9A-352824AD3C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55B75869-E239-4997-A0C3-31A239D85CCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55B75869-E239-4997-A0C3-31A239D85CCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55B75869-E239-4997-A0C3-31A239D85CCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55B75869-E239-4997-A0C3-31A239D85CCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F03F7E-2620-4AF6-BFD6-F6D21FB9EEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F03F7E-2620-4AF6-BFD6-F6D21FB9EEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F03F7E-2620-4AF6-BFD6-F6D21FB9EEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F03F7E-2620-4AF6-BFD6-F6D21FB9EEFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85E467C0-44B4-4063-8FC5-579376D39EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85E467C0-44B4-4063-8FC5-579376D39EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85E467C0-44B4-4063-8FC5-579376D39EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85E467C0-44B4-4063-8FC5-579376D39EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2CE688-2F6B-4B40-BB0D-301FB98D3E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2CE688-2F6B-4B40-BB0D-301FB98D3E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2CE688-2F6B-4B40-BB0D-301FB98D3E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2CE688-2F6B-4B40-BB0D-301FB98D3E29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D779E4A2-129D-4A4B-9D22-1EEACCD55BA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D779E4A2-129D-4A4B-9D22-1EEACCD55BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D779E4A2-129D-4A4B-9D22-1EEACCD55BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D779E4A2-129D-4A4B-9D22-1EEACCD55BA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5A7946F-5F18-4E71-97E6-4BE15D028EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A7946F-5F18-4E71-97E6-4BE15D028EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A7946F-5F18-4E71-97E6-4BE15D028EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A7946F-5F18-4E71-97E6-4BE15D028EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ADF8608-D1FC-49D1-B364-8B00C5970596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ADF8608-D1FC-49D1-B364-8B00C5970596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ADF8608-D1FC-49D1-B364-8B00C5970596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ADF8608-D1FC-49D1-B364-8B00C5970596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA5E25A2-AD44-4F1D-9942-27AFC93ECBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA5E25A2-AD44-4F1D-9942-27AFC93ECBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA5E25A2-AD44-4F1D-9942-27AFC93ECBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA5E25A2-AD44-4F1D-9942-27AFC93ECBFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07244958-C7BF-4DCD-912D-BDA23B9117A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07244958-C7BF-4DCD-912D-BDA23B9117A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07244958-C7BF-4DCD-912D-BDA23B9117A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07244958-C7BF-4DCD-912D-BDA23B9117A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F423DD76-371D-472C-B9EB-2A2FD57C690C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F423DD76-371D-472C-B9EB-2A2FD57C690C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F423DD76-371D-472C-B9EB-2A2FD57C690C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F423DD76-371D-472C-B9EB-2A2FD57C690C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD888A6-B42C-4A00-B5A2-DB29F131398F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD888A6-B42C-4A00-B5A2-DB29F131398F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD888A6-B42C-4A00-B5A2-DB29F131398F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD888A6-B42C-4A00-B5A2-DB29F131398F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1CBF9D6-A64F-4B47-9DFB-118EC20CA13F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1CBF9D6-A64F-4B47-9DFB-118EC20CA13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1CBF9D6-A64F-4B47-9DFB-118EC20CA13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1CBF9D6-A64F-4B47-9DFB-118EC20CA13F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B6CDBC5-3F85-4C99-A9C7-09A783A91D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B6CDBC5-3F85-4C99-A9C7-09A783A91D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B6CDBC5-3F85-4C99-A9C7-09A783A91D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B6CDBC5-3F85-4C99-A9C7-09A783A91D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87EF017E-7FC7-468E-9F86-875895670EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87EF017E-7FC7-468E-9F86-875895670EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87EF017E-7FC7-468E-9F86-875895670EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87EF017E-7FC7-468E-9F86-875895670EE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {258590A4-75EE-493B-9FB5-CA2D99D22D45}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 20
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://orion-informatics.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BBAPI\\BBAPI.csproj
+		SccProjectName1 = BBAPI
+		SccLocalPath1 = BBAPI
+		SccProjectUniqueName2 = ReceiverAPI\\ReceiverAPI.csproj
+		SccProjectName2 = ReceiverAPI
+		SccLocalPath2 = ReceiverAPI
+		SccProjectUniqueName3 = SenderUI\\SenderUI.csproj
+		SccProjectName3 = SenderUI
+		SccLocalPath3 = SenderUI
+		SccProjectUniqueName4 = IDTP.Utility\\IDTP.Utility.csproj
+		SccProjectName4 = IDTP.Utility
+		SccLocalPath4 = IDTP.Utility
+		SccProjectUniqueName5 = IDTPBusinessLayer\\IDTPBusinessLayer.csproj
+		SccProjectName5 = IDTPBusinessLayer
+		SccLocalPath5 = IDTPBusinessLayer
+		SccProjectUniqueName6 = IDTPCryptography\\IDTPCryptography.csproj
+		SccProjectName6 = IDTPCryptography
+		SccLocalPath6 = IDTPCryptography
+		SccProjectUniqueName7 = IDTPDataAccessLayer\\IDTPDataAccessLayer.csproj
+		SccProjectName7 = IDTPDataAccessLayer
+		SccLocalPath7 = IDTPDataAccessLayer
+		SccProjectUniqueName8 = IDTPDataTransferObjects\\IDTPDataTransferObjects.csproj
+		SccProjectName8 = IDTPDataTransferObjects
+		SccLocalPath8 = IDTPDataTransferObjects
+		SccProjectUniqueName9 = IDTPDomainModel\\IDTPDomainModel.csproj
+		SccProjectName9 = IDTPDomainModel
+		SccLocalPath9 = IDTPDomainModel
+		SccProjectUniqueName10 = IDTPKeyVaultManagement\\IDTPKeyVaultManagement.csproj
+		SccProjectName10 = IDTPKeyVaultManagement
+		SccLocalPath10 = IDTPKeyVaultManagement
+		SccProjectUniqueName11 = IDTPServiceController\\IDTPServiceController.csproj
+		SccProjectName11 = IDTPServiceController
+		SccLocalPath11 = IDTPServiceController
+		SccProjectUniqueName12 = FundTransferUI\\FundTransferUI.csproj
+		SccProjectName12 = FundTransferUI
+		SccLocalPath12 = FundTransferUI
+		SccProjectUniqueName13 = GovtBillingSystemUI\\GovtBillingSystemUI.csproj
+		SccProjectName13 = GovtBillingSystemUI
+		SccLocalPath13 = GovtBillingSystemUI
+		SccProjectUniqueName14 = IDTPApiService\\IDTPApiService.csproj
+		SccProjectName14 = IDTPApiService
+		SccLocalPath14 = IDTPApiService
+		SccProjectUniqueName15 = IDTP_DESCO_DemoAPI\\IDTPDescoDemoAPI.csproj
+		SccProjectName15 = IDTP_DESCO_DemoAPI
+		SccLocalPath15 = IDTP_DESCO_DemoAPI
+		SccProjectUniqueName16 = IDTP_DESCO_DEMO_UI\\IDTPDescoDemoUI.csproj
+		SccProjectName16 = IDTP_DESCO_DEMO_UI
+		SccLocalPath16 = IDTP_DESCO_DEMO_UI
+		SccProjectUniqueName17 = IDTPReportTool\\IDTPReportTool.csproj
+		SccProjectName17 = IDTPReportTool
+		SccLocalPath17 = IDTPReportTool
+		SccProjectUniqueName18 = IDTPAdminUI\\IDTPAdminUI.csproj
+		SccProjectName18 = IDTPAdminUI
+		SccLocalPath18 = IDTPAdminUI
+		SccProjectUniqueName19 = ReceiverUI\\ReceiverUI.csproj
+		SccProjectName19 = ReceiverUI
+		SccLocalPath19 = ReceiverUI
+	EndGlobalSection
+EndGlobal

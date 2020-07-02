@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutTransferDashboard.cshtml";
+}
+
+<link href="~/plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
+<style>
+    select {
+        -webkit-appearance: none;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Bill Payment </h3><br>
+                    <form asp-action="Create">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                Sender Bank <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                @Html.DropDownList("SenderBankId", new SelectList(ViewBag.banklist, "Id", "Name"), "Select Bank", new { @id = "bankSelect1", @onchange = "getDataSender()", @class = "form-control custom-select", required = true })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                Sender Branch <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                <select id="branchSelect" name="SenderBranchId" class="custom-select">
+                                    <option selected>Select Branch</option>
+
+                                </select>
+                                @*@Html.DropDownList("SenderBranchId", new SelectList(ViewBag.listSenderBranch, "Id", "BranchName"), "-- Select Branch --", new { @class = "form-control", required = true })*@
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                Account Number <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="groupdes" name="SenderAccNo" placeholder="Enter Sender Account Number" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                Account Name <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="groupdes" name="SenderAccName" placeholder="Enter Sender Account Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                 Contact Number <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="groupdes" name="ContactNo" placeholder="Contact Number" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                Receiver Organization <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                @*@Html.DropDownList("ReceiverBankId", new SelectList(ViewBag.banklist, "Id", "Name"), "Select Bank", new { @id = "bankSelect2", @onchange = "getDataReceiver()", @class = "form-control", required = true })*@
+                                <select name="ReceiverName" class="custom-select">
+                                    <option selected>Select Organization</option>
+                                    <option value="Desco">Desco</option>
+                                </select>
+                            </div>
+                        </div> 
+                        <div class="form-group row">
+                            <label class="col-lg-4 col-form-label">
+                                Amount <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="groupdes" name="Amount" placeholder="Enter Transaction Amount" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8 ">
+                                <button type="submit" id="btnSubmit" class="btn btn-primary float-right">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/plugins/sweetalert/js/sweetalert.init.js"></script>
+<script src="~/plugins/sweetalert/js/sweetalert.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var error = '@TempData["error"]';
+        if (error != null && error != "") {
+            swal("", error, "warning");
+        }
+        var txnId = '@TempData["txnId"]';
+        if (txnId != null && txnId != "") {
+            swal("The Transaction was Successful!","The Transaction Reference ID is: " + txnId.toString(), "success");
+        }
+    });
+</script>
+<script>
+    function getDataSender() {
+        var selectBank = $("#bankSelect1 option:selected").text();
+        console.log(selectBank)
+        if (selectBank != "Select Bank") {
+            var paymentTypeName = $("#bankSelect1 option:selected").val();
+            console.log(paymentTypeName);
+
+            $.ajax({
+                url: '/BillPayment/getBranches/?id=' + paymentTypeName,
+                type: 'get',
+                contentType: 'application/json',
+                success: function (data) {
+                    $("#branchSelect").empty();
+
+                    var length = Object.keys(data).length;
+                    for (i = 0; i < length; i++) {
+                        var o = new Option(data[i].branchName, data[i].id);
+                        console.log(data[i].branchName)
+                        $("#branchSelect").append(o);
+                    }
+
+                },
+            });
+        }
+        else {
+            $("#branchSelect").empty();
+            var o = new Option("Select Branch");
+            $("#branchSelect").append(o);
+        }
+
+    }
+    
+</script>

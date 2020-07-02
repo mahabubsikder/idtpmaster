@@ -1,0 +1,158 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+    <div class="container-fluid mt-3">
+
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <a href="/TokenManagement/Index">
+                    <div class="card gradient-1">
+                        <div class="card-body">
+                            <h3 class="card-title text-white">
+                                API and Services
+                            </h3>
+                            <div class="d-inline-block">
+                                <p class="text-white mb-0">API and Services</p>
+                            </div>
+                            <span class="float-right display-5 opacity-5"><i class="fas fa-file-invoice-dollar"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        @if (this.User.IsInRole("IDTPAdmin")) {
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="/ParticipantCapAdmin/Index">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Risk Management System</h3>
+                                <div class="d-inline-block">
+                                    <p class="text-white mb-0">Manage and Monitor Risks</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fas fa-balance-scale-left"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="/Settlement/Index">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Clearing/Settlement/Liquidity </h3>
+                                <div class="d-inline-block">
+                                    <p class="text-white mb-0">Clearing settlement liquidity</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fas fa-search-dollar"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="/Home/Dashboard">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">IDTP Dashboard</h3>
+                                <div class="d-inline-block">
+                                    <p class="text-white mb-0">Shows bar charts and pie charts</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fas fa-chart-pie"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="/Report/Index">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">IDTP Reports</h3>
+                                <div class="d-inline-block">
+                                    <p class="text-white mb-0">Display reports and export</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fas fa-file-pdf"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="/Users/Index">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">IDTP Users Management</h3>
+                                <div class="d-inline-block">
+                                    <p class="text-white mb-0">Users registration and management</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fas fa-users-cog"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+        else if (this.User.IsInRole("Business")) {
+            <h1>Business Panel</h1>
+        }
+        else if (this.User.IsInRole("GovernmentInstitute")) {
+            <h1>Government Institute Panel</h1>
+        }
+        else if (this.User.IsInRole("FinancialInstitute")) {
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                        @*<li class="breadcrumb-item active"><a href="@Url.Action("Index", "Report")">Report</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">@ViewBag.ReportTitle</a></li>*@
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="/DisputeManagement/LodgeParticipantComplaint">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Lodge Participant Complaint</h3>
+                                <div class="d-inline-block">
+                                    <p class="text-white mb-0">Lodge Complaint </p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fas fa-file-invoice-dollar"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="/DisputeManagement/ParticipantResponseToDispute">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Participant Response To Dispute</h3>
+                                <div class="d-inline-block">
+                                    <p class="text-white mb-0">Manage Lodged Dispute </p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fas fa-file-invoice-dollar"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="/TransactionMonitoring/Index">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Realtime Transaction Monitor</h3>
+                                <div class="d-inline-block">
+                                    <p class="text-white mb-0">Monitor transactions in realtime</p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fas fa-file-invoice-dollar"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+        }
+    </div>
