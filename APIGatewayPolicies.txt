@@ -1,0 +1,71 @@
+//Service Controller
+
+<!--
+    IMPORTANT:
+    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.
+    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.
+    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.
+    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.
+    - To remove a policy, delete the corresponding policy statement from the policy document.
+    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.
+    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.
+    - Policies are applied in the order of their appearance, from the top down.
+    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.
+-->
+<policies>
+    <inbound>
+        <base />
+        <check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">
+            <value>3eO84YBUWElWBZnWvvxNnkpyKB7BNkyK</value>
+        </check-header>
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+
+//Notification Manager
+
+<!--
+    IMPORTANT:
+    - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.
+    - To apply a policy to the incoming request (before it is forwarded to the backend service), place a corresponding policy element within the <inbound> section element.
+    - To apply a policy to the outgoing response (before it is sent back to the caller), place a corresponding policy element within the <outbound> section element.
+    - To add a policy, place the cursor at the desired insertion point and select a policy from the sidebar.
+    - To remove a policy, delete the corresponding policy statement from the policy document.
+    - Position the <base> element within a section element to inherit all policies from the corresponding section element in the enclosing scope.
+    - Remove the <base> element to prevent inheriting policies from the corresponding section element in the enclosing scope.
+    - Policies are applied in the order of their appearance, from the top down.
+    - Comments within policy elements are not supported and may disappear. Place your comments between policy elements or at a higher level scope.
+-->
+<policies>
+    <inbound>
+        <base />
+        <check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">
+            <value>3eO84YBUWElWBZnWvvxNnkpyKB7BNkyK</value>
+        </check-header>
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+        <set-header name="X-Powered-By" exists-action="delete" />
+        <set-header name="ocp-apim-trace-location" exists-action="delete" />
+        <find-and-replace from="https://idtp-microservice-notificationmanager.azurewebsites.net/" to="https://idtp-api-gateway.azure-api.net/notify" />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+
+
+Fundtransfer sample
+
+"<?xml version=\"1.0\" encoding=\"utf-8\"?><DataPDU    xmlns=\"urn:swift:saa:xsd:saa.2.0\">    <Revision>2.0.5</Revision>    <Body>        <AppHdr            xmlns=\"urn:iso:std:iso:20022:tech:xsd:head.001.001.01\">            <Fr>                <FIId>                    <FinInstnId>                        <BICFI>EBLDBDBH</BICFI>                    </FinInstnId>                </FIId>            </Fr>            <To>                <FIId>                    <FinInstnId>                        <BICFI>BBHOBDDHRTG</BICFI>                    </FinInstnId>                </FIId>            </To>            <BizMsgIdr>EBLD20200618140821</BizMsgIdr>            <MsgDefIdr>pacs.008.001.04</MsgDefIdr>            <BizSvc>RTGS</BizSvc>            <CreDt>2020-06-18T14:08:21Z</CreDt>        </AppHdr>        <Document            xmlns=\"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.04\">            <FIToFICstmrCdtTrf>                <GrpHdr>                    <MsgId>EBLD20200618140821</MsgId>                    <CreDtTm>2020-06-18T14:08:21</CreDtTm>                    <NbOfTxs>1</NbOfTxs>                    <SttlmInf>                        <SttlmMtd>CLRG</SttlmMtd>                    </SttlmInf>                </GrpHdr>                <CdtTrfTxInf>                    <PmtId>                        <InstrId>EBLD20200618140821</InstrId>                        <EndToEndId>EBLD20200618140821</EndToEndId>                        <TxId>EBLD20200618140821</TxId>                    </PmtId>                    <PmtTpInf>                        <ClrChanl>RTGS</ClrChanl>                        <SvcLvl>                            <Prtry>0075</Prtry>                        </SvcLvl>                        <LclInstrm>                            <Prtry>RTGS_SSCT</Prtry>                        </LclInstrm>                        <CtgyPurp>                            <Prtry>001</Prtry>                        </CtgyPurp>                    </PmtTpInf>                    <IntrBkSttlmAmt Ccy=\"BDT\">110</IntrBkSttlmAmt>                    <IntrBkSttlmDt>2020-06-18</IntrBkSttlmDt>                    <ChrgBr>SHAR</ChrgBr>                    <InstgAgt>                        <FinInstnId>                            <BICFI>EBLDBDBH</BICFI>                        </FinInstnId>                    </InstgAgt>                    <InstdAgt>                        <FinInstnId>                            <BICFI>BRAKBDDH</BICFI>                        </FinInstnId>                    </InstdAgt>                    <Dbtr>                        <Nm>Fahmid Ahmed</Nm>                    </Dbtr>                    <DbtrAcct>                        <Id>                            <Othr>                                <Id>11223344</Id>                            </Othr>                        </Id>                    </DbtrAcct>                    <DbtrAgt>                        <FinInstnId>                            <BICFI>EBLDBDBH</BICFI>                        </FinInstnId>                        <BrnchId>                            <Id>0127665765</Id>                        </BrnchId>                    </DbtrAgt>                    <DbtrAgtAcct>                        <Id>                            <Othr>                                <Id>432651</Id>                            </Othr>                        </Id>                    </DbtrAgtAcct>                    <CdtrAgt>                        <FinInstnId>                            <BICFI>BRAKBDDH</BICFI>                        </FinInstnId>                        <BrnchId>                            <Id>0577665765</Id>                        </BrnchId>                    </CdtrAgt>                    <CdtrAgtAcct>                        <Id>                            <Othr>                                <Id>552651</Id>                            </Othr>                        </Id>                    </CdtrAgtAcct>                    <Cdtr>                        <Nm>Saif Kamal</Nm>                    </Cdtr>                    <CdtrAcct>                        <Id>                            <Othr>                                <Id>44332211</Id>                            </Othr>                        </Id>                    </CdtrAcct>                    <RmtInf>                        <Ustrd>salary</Ustrd>                    </RmtInf>                </CdtTrfTxInf>                <SplmtryData>                    <PlcAndNm>str1234</PlcAndNm>                    <Envlp />                </SplmtryData>            </FIToFICstmrCdtTrf>        </Document>    </Body></DataPDU>"
